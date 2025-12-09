@@ -1,5 +1,4 @@
 "use client";
-
 import { useState, useEffect, useCallback } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -26,6 +25,8 @@ import {
   ChevronLeft,
   ChevronRight,
   ArrowLeft,
+  Lock,
+  AlertCircle,
 } from "lucide-react";
 import { AnimatedCounter } from "./components/animated-counter";
 
@@ -826,251 +827,252 @@ export default function ICYRANDashboard() {
     []
   );
 
-  const renderHome = () => (
-    <div className="space-y-12 pb-24">
+ const renderHome = () => (
+    <div className="space-y-12 pb-24 relative">
       {/* ============================================= */}
       {/* بک گراند قسمت خانه - شروع */}
       {/* ============================================= */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute inset-0 bg-[#1e3a5a]"></div>
-        {/* رنگ آبی آسمانی دارک مات - هیچ گرادیانت یا انیمیشن اضافه نشده */}
+      <div
+        className="fixed inset-0 overflow-hidden pointer-events-none bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage:
+            'url("https://uploadkon.ir/uploads/048807_25an-abstract-gradient.png")',
+        }}
+      >
+        {/* افکت‌های اضافی برای جلوه بیشتر */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-br from-blue-500/20 to-cyan-600/10 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div
+          className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-to-br from-blue-600/10 to-cyan-700/15 rounded-full blur-3xl animate-pulse-slow"
+          style={{ animationDelay: "2s" }}
+        ></div>
       </div>
       {/* ============================================= */}
       {/* بک گراند قسمت خانه - پایان */}
       {/* ============================================= */}
 
 
+      <div className="relative z-10 grid lg:grid-cols-2 gap-8 items-center overflow-hidden rounded-3xl p-6 md:p-10 bg-gradient-to-br from-gray-900 via-green-950/50 to-gray-900 backdrop-blur-2xl border border-green-800/60 shadow-2xl shadow-green-900/40">
+        {/* Background Effects */}
+        <div className="absolute inset-0 bg-gradient-to-br from-green-800/20 via-transparent to-emerald-900/15 animate-pulse-slow"></div>
 
-
-
-
-
-
-
-
-<div className="relative z-10 grid lg:grid-cols-2 gap-8 items-center overflow-hidden rounded-3xl p-6 md:p-10 bg-gradient-to-br from-gray-900 via-green-950/50 to-gray-900 backdrop-blur-2xl border border-green-800/60 shadow-2xl shadow-green-900/40">
-  
-  {/* Background Effects */}
-  <div className="absolute inset-0 bg-gradient-to-br from-green-800/20 via-transparent to-emerald-900/15 animate-pulse-slow"></div>
-  
-  {/* Geometric Pattern */}
-  <div className="absolute inset-0 opacity-5">
-    <div className="absolute inset-0 bg-[linear-gradient(30deg,currentColor_1px,transparent_1px)] bg-[size:20px_20px]"></div>
-  </div>
-
-  {/* Floating Elements */}
-  <div className="absolute top-4 left-4 w-16 h-16 bg-green-700/25 rounded-full blur-lg animate-float"></div>
-  <div className="absolute bottom-4 right-4 w-20 h-20 bg-emerald-800/25 rounded-full blur-lg animate-float animation-delay-2000"></div>
-
-  {/* Left Content */}
-  <div className="relative z-10 order-1 text-center space-y-6">
-    <div className="space-y-4">
-      {/* ICYRAN Title */}
-      <div className="relative">
-        <h1 className="text-5xl md:text-7xl font-black bg-gradient-to-r from-white via-green-100 to-emerald-100 bg-clip-text text-transparent tracking-tight leading-none">
-          ICYRAN
-        </h1>
-        
-        {/* Subtle shine effect */}
-        <div className="absolute -bottom-3 left-1/3 right-1/3 h-px bg-gradient-to-r from-transparent via-green-300/80 to-transparent">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent animate-shine opacity-70"></div>
+        {/* Geometric Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0 bg-[linear-gradient(30deg,currentColor_1px,transparent_1px)] bg-[size:20px_20px]"></div>
         </div>
-      </div>
 
-      <div className="space-y-3">
-        <p className="text-xl md:text-2xl text-gray-200 font-light tracking-wide">
-          آکادمی برنامه‌نویسی و هوش مصنوعی
-        </p>
-        <p className="text-base md:text-lg text-gray-300/80 max-w-md mx-auto leading-relaxed font-light">
-          مسیر یادگیری خود را با بهترین منتورها آغاز کنید
-        </p>
-      </div>
-    </div>
+        {/* Floating Elements */}
+        <div className="absolute top-4 left-4 w-16 h-16 bg-green-700/25 rounded-full blur-lg animate-float"></div>
+        <div className="absolute bottom-4 right-4 w-20 h-20 bg-emerald-800/25 rounded-full blur-lg animate-float animation-delay-2000"></div>
 
-    {/* Tech Stack */}
-    <div className="flex justify-center gap-4 pt-6">
-      {[
-        { tech: "JS", color: "green", icon: "⚡" },
-        { tech: "React", color: "emerald", icon: "⚛️" },
-        { tech: "Python", color: "lime", icon: "🐍" },
-        { tech: "AI", color: "teal", icon: "🧠" }
-      ].map((item, i) => (
-        <div key={i} className="relative group">
-          <div className={`w-16 h-16 bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl flex flex-col items-center justify-center border border-${item.color}-700/50 shadow-lg backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:border-${item.color}-500/70 group-hover:shadow-${item.color}-700/40`}>
-            <span className="text-sm mb-0.5">{item.icon}</span>
-            <span className="text-xs font-semibold text-gray-200">{item.tech}</span>
+        {/* Left Content */}
+        <div className="relative z-10 order-1 text-center space-y-6">
+          <div className="space-y-4">
+            {/* ICYRAN Title */}
+            <div className="relative">
+              <h1 className="text-5xl md:text-7xl font-black bg-gradient-to-r from-white via-green-100 to-emerald-100 bg-clip-text text-transparent tracking-tight leading-none">
+                ICYRAN
+              </h1>
+
+              {/* Subtle shine effect */}
+              <div className="absolute -bottom-3 left-1/3 right-1/3 h-px bg-gradient-to-r from-transparent via-green-300/80 to-transparent">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent animate-shine opacity-70"></div>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <p className="text-xl md:text-2xl text-gray-200 font-light tracking-wide">
+                آکادمی برنامه‌نویسی و هوش مصنوعی
+              </p>
+              <p className="text-base md:text-lg text-gray-300/80 max-w-md mx-auto leading-relaxed font-light">
+                مسیر یادگیری خود را با بهترین منتورها آغاز کنید
+              </p>
+            </div>
           </div>
-          {/* Hover glow */}
-          <div className={`absolute inset-0 bg-${item.color}-700/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10`}></div>
-        </div>
-      ))}
-    </div>
 
-    {/* CTA Button */}
-    <div className="pt-6">
-      <button className="px-8 py-3 bg-gradient-to-r from-green-800 to-emerald-800 rounded-xl font-semibold text-white text-sm shadow-lg transform hover:scale-105 hover:shadow-green-700/40 transition-all duration-300 border border-green-600/50">
-        شروع یادگیری
-      </button>
-    </div>
-  </div>
+          {/* Tech Stack */}
+          <div className="flex justify-center gap-4 pt-6">
+            {[
+              { tech: "JS", color: "green", icon: "⚡" },
+              { tech: "React", color: "emerald", icon: "⚛️" },
+              { tech: "Python", color: "lime", icon: "🐍" },
+              { tech: "AI", color: "teal", icon: "🧠" },
+            ].map((item, i) => (
+              <div key={i} className="relative group">
+                <div
+                  className={`w-16 h-16 bg-gradient-to-br from-gray-900 to-gray-800 rounded-xl flex flex-col items-center justify-center border border-${item.color}-700/50 shadow-lg backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:border-${item.color}-500/70 group-hover:shadow-${item.color}-700/40`}
+                >
+                  <span className="text-sm mb-0.5">{item.icon}</span>
+                  <span className="text-xs font-semibold text-gray-200">
+                    {item.tech}
+                  </span>
+                </div>
+                {/* Hover glow */}
+                <div
+                  className={`absolute inset-0 bg-${item.color}-700/30 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10`}
+                ></div>
+              </div>
+            ))}
+          </div>
 
-  {/* Right Content - Circular Logo */}
-  <div className="relative z-10 order-2 flex justify-center">
-    <div className="relative">
-      {/* Circular Logo Container */}
-      <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full bg-gradient-to-br from-gray-900 to-gray-800 border border-green-700/50 shadow-xl backdrop-blur-sm flex items-center justify-center overflow-hidden group">
-        
-        {/* Animated Background */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,currentColor_1px,transparent_1px)] bg-[size:20px_20px] animate-pulse-slow"></div>
-        </div>
-        
-        {/* Circular Logo Image - Enhanced Visibility */}
-        <div className="relative z-10 w-36 h-36 md:w-44 md:h-44 rounded-full flex items-center justify-center overflow-hidden">
-          {/* Circular Image with Enhanced Visibility */}
-          <img 
-            src="https://uploadkon.ir/uploads/e20118_25Stylized-logo-with-a.png" 
-            alt="ICYRAN Logo" 
-            className="w-full h-full object-cover rounded-full transform group-hover:scale-105 transition-transform duration-500 brightness-110 contrast-110 saturate-110"
-            onError={(e) => {
-              e.target.style.display = 'none';
-              e.target.nextSibling.style.display = 'flex';
-            }}
-          />
-          {/* Fallback Circular Logo */}
-          <div className="w-full h-full bg-gradient-to-br from-green-700 to-emerald-700 rounded-full flex items-center justify-center shadow-lg hidden">
-            <span className="text-2xl md:text-3xl font-black text-white">I</span>
+          {/* CTA Button */}
+          <div className="pt-6">
+            <button className="px-8 py-3 bg-gradient-to-r from-green-800 to-emerald-800 rounded-xl font-semibold text-white text-sm shadow-lg transform hover:scale-105 hover:shadow-green-700/40 transition-all duration-300 border border-green-600/50">
+              شروع یادگیری
+            </button>
           </div>
         </div>
-        
-        {/* Color Overlay Effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-green-600/10 to-emerald-600/10 rounded-full mix-blend-overlay group-hover:opacity-50 transition-opacity duration-500"></div>
-        
-        {/* Circular Border Animation */}
-        <div className="absolute inset-0 border-2 border-transparent border-t-green-500 border-r-emerald-500 rounded-full animate-spin-slow opacity-70"></div>
-        <div className="absolute inset-2 border-2 border-transparent border-b-emerald-500 border-l-green-500 rounded-full animate-spin-slow-reverse opacity-50"></div>
-        
-        {/* Corner Dots - Circular */}
-        <div className="absolute top-4 left-4 w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-        <div className="absolute top-4 right-4 w-2 h-2 bg-emerald-400 rounded-full animate-pulse animation-delay-500"></div>
-        <div className="absolute bottom-4 left-4 w-2 h-2 bg-emerald-400 rounded-full animate-pulse animation-delay-1000"></div>
-        <div className="absolute bottom-4 right-4 w-2 h-2 bg-green-400 rounded-full animate-pulse animation-delay-1500"></div>
-      </div>
 
-      {/* Orbiting Elements */}
-      {[
-        { tech: "⚡", color: "green", size: "w-10 h-10", orbit: "100px" },
-        { tech: "⚛️", color: "emerald", size: "w-8 h-8", orbit: "85px" },
-        { tech: "🐍", color: "lime", size: "w-9 h-9", orbit: "70px" }
-      ].map((item, i) => (
-        <div
-          key={i}
-          className={`absolute ${item.size} bg-gray-900 border border-${item.color}-700/50 rounded-full flex items-center justify-center shadow-lg animate-orbit`}
-          style={{
-            animationDelay: `${i * 1.2}s`,
-            animationDuration: '8s',
-          }}
-        >
-          <span className="text-xs">{item.tech}</span>
+        {/* Right Content - Circular Logo */}
+        <div className="relative z-10 order-2 flex justify-center">
+          <div className="relative">
+            {/* Circular Logo Container */}
+            <div className="relative w-48 h-48 md:w-56 md:h-56 rounded-full bg-gradient-to-br from-gray-900 to-gray-800 border border-green-700/50 shadow-xl backdrop-blur-sm flex items-center justify-center overflow-hidden group">
+              {/* Animated Background */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,currentColor_1px,transparent_1px)] bg-[size:20px_20px] animate-pulse-slow"></div>
+              </div>
+
+              {/* Circular Logo Image - Enhanced Visibility */}
+              <div className="relative z-10 w-36 h-36 md:w-44 md:h-44 rounded-full flex items-center justify-center overflow-hidden">
+                {/* Circular Image with Enhanced Visibility */}
+                <img
+                  src="https://uploadkon.ir/uploads/e20118_25Stylized-logo-with-a.png"
+                  alt="ICYRAN Logo"
+                  className="w-full h-full object-cover rounded-full transform group-hover:scale-105 transition-transform duration-500 brightness-110 contrast-110 saturate-110"
+                  onError={(e) => {
+                    e.target.style.display = "none";
+                    e.target.nextSibling.style.display = "flex";
+                  }}
+                />
+                {/* Fallback Circular Logo */}
+                <div className="w-full h-full bg-gradient-to-br from-green-700 to-emerald-700 rounded-full flex items-center justify-center shadow-lg hidden">
+                  <span className="text-2xl md:text-3xl font-black text-white">
+                    I
+                  </span>
+                </div>
+              </div>
+
+              {/* Color Overlay Effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-green-600/10 to-emerald-600/10 rounded-full mix-blend-overlay group-hover:opacity-50 transition-opacity duration-500"></div>
+
+              {/* Circular Border Animation */}
+              <div className="absolute inset-0 border-2 border-transparent border-t-green-500 border-r-emerald-500 rounded-full animate-spin-slow opacity-70"></div>
+              <div className="absolute inset-2 border-2 border-transparent border-b-emerald-500 border-l-green-500 rounded-full animate-spin-slow-reverse opacity-50"></div>
+
+              {/* Corner Dots - Circular */}
+              <div className="absolute top-4 left-4 w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              <div className="absolute top-4 right-4 w-2 h-2 bg-emerald-400 rounded-full animate-pulse animation-delay-500"></div>
+              <div className="absolute bottom-4 left-4 w-2 h-2 bg-emerald-400 rounded-full animate-pulse animation-delay-1000"></div>
+              <div className="absolute bottom-4 right-4 w-2 h-2 bg-green-400 rounded-full animate-pulse animation-delay-1500"></div>
+            </div>
+
+            {/* Orbiting Elements */}
+            {[
+              { tech: "⚡", color: "green", size: "w-10 h-10", orbit: "100px" },
+              { tech: "⚛️", color: "emerald", size: "w-8 h-8", orbit: "85px" },
+              { tech: "🐍", color: "lime", size: "w-9 h-9", orbit: "70px" },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className={`absolute ${item.size} bg-gray-900 border border-${item.color}-700/50 rounded-full flex items-center justify-center shadow-lg animate-orbit`}
+                style={{
+                  animationDelay: `${i * 1.2}s`,
+                  animationDuration: "8s",
+                }}
+              >
+                <span className="text-xs">{item.tech}</span>
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
-  </div>
 
-  {/* Floating Dots */}
-  <div className="absolute top-6 right-10 w-1.5 h-1.5 bg-green-400/70 rounded-full animate-bounce"></div>
-  <div className="absolute bottom-8 left-12 w-1 h-1 bg-emerald-400/70 rounded-full animate-bounce animation-delay-1000"></div>
-  <div className="absolute top-12 left-10 w-1 h-1 bg-white/60 rounded-full animate-bounce animation-delay-500"></div>
+        {/* Floating Dots */}
+        <div className="absolute top-6 right-10 w-1.5 h-1.5 bg-green-400/70 rounded-full animate-bounce"></div>
+        <div className="absolute bottom-8 left-12 w-1 h-1 bg-emerald-400/70 rounded-full animate-bounce animation-delay-1000"></div>
+        <div className="absolute top-12 left-10 w-1 h-1 bg-white/60 rounded-full animate-bounce animation-delay-500"></div>
 
-  {/* Code Elements */}
-  <div className="absolute bottom-6 right-6 text-green-400/60 font-mono text-xs animate-pulse">
-    {"</>"}
-  </div>
-  <div className="absolute top-6 left-6 text-emerald-400/60 font-mono text-xs animate-pulse animation-delay-1500">
-    {"=>"}
-  </div>
+        {/* Code Elements */}
+        <div className="absolute bottom-6 right-6 text-green-400/60 font-mono text-xs animate-pulse">
+          {"</>"}
+        </div>
+        <div className="absolute top-6 left-6 text-emerald-400/60 font-mono text-xs animate-pulse animation-delay-1500">
+          {"=>"}
+        </div>
 
-  <style jsx>{`
-    @keyframes shine {
-      0% {
-        transform: translateX(-100%);
-      }
-      100% {
-        transform: translateX(100%);
-      }
-    }
-    @keyframes orbit {
-      0% {
-        transform: rotate(0deg) translateX(100px) rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg) translateX(100px) rotate(-360deg);
-      }
-    }
-    @keyframes float {
-      0%, 100% {
-        transform: translateY(0px);
-      }
-      50% {
-        transform: translateY(-10px);
-      }
-    }
-    @keyframes spin-slow {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
-    }
-    @keyframes spin-slow-reverse {
-      from {
-        transform: rotate(360deg);
-      }
-      to {
-        transform: rotate(0deg);
-      }
-    }
-    .animate-shine {
-      animation: shine 4s ease-in-out infinite;
-    }
-    .animate-orbit {
-      animation: orbit linear infinite;
-    }
-    .animate-float {
-      animation: float 6s ease-in-out infinite;
-    }
-    .animate-spin-slow {
-      animation: spin-slow 8s linear infinite;
-    }
-    .animate-spin-slow-reverse {
-      animation: spin-slow-reverse 6s linear infinite;
-    }
-    .animation-delay-500 {
-      animation-delay: 500ms;
-    }
-    .animation-delay-1000 {
-      animation-delay: 1000ms;
-    }
-    .animation-delay-1500 {
-      animation-delay: 1500ms;
-    }
-    .animation-delay-2000 {
-      animation-delay: 2000ms;
-    }
-    .animate-pulse-slow {
-      animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-    }
-  `}</style>
-</div>
-
-
-
-
-
-
-
-
+        <style jsx>{`
+          @keyframes shine {
+            0% {
+              transform: translateX(-100%);
+            }
+            100% {
+              transform: translateX(100%);
+            }
+          }
+          @keyframes orbit {
+            0% {
+              transform: rotate(0deg) translateX(100px) rotate(0deg);
+            }
+            100% {
+              transform: rotate(360deg) translateX(100px) rotate(-360deg);
+            }
+          }
+          @keyframes float {
+            0%,
+            100% {
+              transform: translateY(0px);
+            }
+            50% {
+              transform: translateY(-10px);
+            }
+          }
+          @keyframes spin-slow {
+            from {
+              transform: rotate(0deg);
+            }
+            to {
+              transform: rotate(360deg);
+            }
+          }
+          @keyframes spin-slow-reverse {
+            from {
+              transform: rotate(360deg);
+            }
+            to {
+              transform: rotate(0deg);
+            }
+          }
+          .animate-shine {
+            animation: shine 4s ease-in-out infinite;
+          }
+          .animate-orbit {
+            animation: orbit linear infinite;
+          }
+          .animate-float {
+            animation: float 6s ease-in-out infinite;
+          }
+          .animate-spin-slow {
+            animation: spin-slow 8s linear infinite;
+          }
+          .animate-spin-slow-reverse {
+            animation: spin-slow-reverse 6s linear infinite;
+          }
+          .animation-delay-500 {
+            animation-delay: 500ms;
+          }
+          .animation-delay-1000 {
+            animation-delay: 1000ms;
+          }
+          .animation-delay-1500 {
+            animation-delay: 1500ms;
+          }
+          .animation-delay-2000 {
+            animation-delay: 2000ms;
+          }
+          .animate-pulse-slow {
+            animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+          }
+        `}</style>
+      </div>
 
       <div className="space-y-12 relative z-10">
         <div className="text-center space-y-6">
@@ -1084,7 +1086,6 @@ export default function ICYRANDashboard() {
           <p className="text-slate-300 text-base md:text-xl">
             به تمام امکانات پلتفرم دسترسی داشته باشید
           </p>
-          {/* Decorative dots */}
           <div className="flex justify-center gap-2">
             <div className="w-2 h-2 bg-lime-400 rounded-full animate-pulse shadow-lg shadow-lime-400/80"></div>
             <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse animation-delay-300 shadow-lg shadow-emerald-400/80"></div>
@@ -1103,35 +1104,24 @@ export default function ICYRANDashboard() {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-500/40 via-cyan-500/40 to-lime-500/40 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
-
                 <div className="relative bg-gradient-to-br from-slate-900/95 to-slate-800/95 backdrop-blur-xl rounded-3xl border-2 border-blue-500/40 p-4 transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-blue-500/50 overflow-hidden group-hover:border-lime-400/80">
                   <div
                     className={`absolute inset-0 ${feature.bgColor} opacity-20 group-hover:opacity-40 transition-opacity duration-500`}
                   ></div>
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-lime-400/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-
                   <div className="relative z-10 space-y-2 text-center flex flex-col items-center justify-center">
-                    {/* آیکون کاملاً بازطراحی شده */}
                     <div className="relative">
                       <div className="absolute inset-0 w-14 h-14 bg-gradient-to-br from-lime-400/40 to-emerald-500/40 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:scale-125"></div>
                       <div className="w-12 h-12 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-all duration-500 shadow-2xl border-2 border-lime-400/60 group-hover:border-lime-300/80 group-hover:shadow-lime-400/50 backdrop-blur-sm relative overflow-hidden">
-                        {/* افکت شاین پویا */}
                         <div className="absolute inset-0 bg-gradient-to-br from-lime-400/20 via-emerald-400/10 to-cyan-400/20 opacity-60"></div>
-
-                        {/* آیکون اصلی */}
                         <feature.icon
                           className={`w-6 h-6 ${feature.color} drop-shadow-lg z-10 relative`}
                         />
-
-                        {/* افکت نور متحرک */}
                         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-
-                        {/* نقاط درخشان */}
                         <div className="absolute top-1 left-1 w-1 h-1 bg-lime-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100"></div>
                         <div className="absolute bottom-1 right-1 w-1 h-1 bg-cyan-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200"></div>
                       </div>
                     </div>
-
                     <h3 className="text-xs font-bold text-white group-hover:text-lime-300 transition-colors duration-300">
                       {feature.name}
                     </h3>
@@ -1170,400 +1160,403 @@ export default function ICYRANDashboard() {
 
           {/* Desktop View */}
           <div className="hidden md:block space-y-8">
-            {/* ردیف اول - 4 باکس بزرگ با طرح‌های مختلف */}
+            {/* 4 Large Boxes - مستطیل‌های بزرگ و شیک */}
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {homeFeatures.slice(0, 4).map((feature, index) => (
                 <div
                   key={index}
                   onClick={() => handleFeatureClick(feature.action)}
-                  className="group relative cursor-pointer animate-fade-in-up"
+                  className="group relative cursor-pointer animate-fade-in-up h-full"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  {/* Background Glow با رنگ‌های مختلف */}
+                  {/* Hover Glow Background - بزرگ‌تر */}
                   <div
-                    className={`absolute inset-0 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl ${
+                    className={`absolute -inset-3 rounded-3xl blur-2xl opacity-0 group-hover:opacity-80 transition-all duration-700 ${
                       index === 0
-                        ? "bg-gradient-to-r from-blue-500/60 via-cyan-500/60 to-lime-500/60"
+                        ? "bg-gradient-to-br from-cyan-500/60 via-blue-500/40 to-transparent"
                         : index === 1
-                        ? "bg-gradient-to-r from-purple-500/60 via-pink-500/60 to-rose-500/60"
+                        ? "bg-gradient-to-br from-purple-500/60 via-pink-500/40 to-transparent"
                         : index === 2
-                        ? "bg-gradient-to-r from-emerald-500/60 via-teal-500/60 to-cyan-500/60"
-                        : "bg-gradient-to-r from-orange-500/60 via-amber-500/60 to-yellow-500/60"
+                        ? "bg-gradient-to-br from-emerald-500/60 via-teal-500/40 to-transparent"
+                        : "bg-gradient-to-br from-amber-500/60 via-orange-500/40 to-transparent"
                     }`}
                   ></div>
 
-                  <div className="relative bg-gradient-to-br from-slate-900/98 to-slate-800/98 backdrop-blur-xl rounded-3xl border-3 border-blue-500/60 p-10 transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-4 group-hover:shadow-3xl group-hover:shadow-blue-500/70 overflow-hidden group-hover:border-lime-400/100 min-h-[320px]">
+                  {/* Main Container - مستطیل بزرگ */}
+                  <div
+                    className={`relative h-full min-h-[340px] backdrop-blur-xl rounded-3xl border-3 p-8 transition-all duration-500 flex flex-col overflow-hidden
+              group-hover:scale-[1.05] group-hover:-translate-y-3 group-hover:shadow-2xl ${
+                index === 0
+                  ? "bg-gradient-to-br from-cyan-900/40 via-slate-900/70 to-blue-900/40 border-cyan-500/50 group-hover:border-cyan-400 group-hover:shadow-cyan-500/40"
+                  : index === 1
+                  ? "bg-gradient-to-br from-purple-900/40 via-slate-900/70 to-pink-900/40 border-purple-500/50 group-hover:border-pink-400 group-hover:shadow-purple-500/40"
+                  : index === 2
+                  ? "bg-gradient-to-br from-emerald-900/40 via-slate-900/70 to-teal-900/40 border-emerald-500/50 group-hover:border-emerald-400 group-hover:shadow-emerald-500/40"
+                  : "bg-gradient-to-br from-amber-900/40 via-slate-900/70 to-orange-900/40 border-amber-500/50 group-hover:border-amber-400 group-hover:shadow-amber-500/40"
+              }`}
+                  >
+                    {/* Top Gradient Accent - ضخیم‌تر */}
                     <div
-                      className={`absolute inset-0 ${feature.bgColor} opacity-25 group-hover:opacity-50 transition-opacity duration-500`}
+                      className={`absolute top-0 left-0 right-0 h-2 rounded-t-3xl ${
+                        index === 0
+                          ? "bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400"
+                          : index === 1
+                          ? "bg-gradient-to-r from-purple-400 via-pink-500 to-purple-400"
+                          : index === 2
+                          ? "bg-gradient-to-r from-emerald-400 via-teal-500 to-emerald-400"
+                          : "bg-gradient-to-r from-amber-400 via-orange-500 to-amber-400"
+                      }`}
                     ></div>
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-lime-400/40 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(16,185,129,0.2),transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                    <div className="relative z-10 space-y-5 flex flex-col items-center justify-center h-full text-center">
-                      {/* آیکون با استایل‌های مختلف برای هر کارت */}
+                    {/* Shine Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1200"></div>
+
+                    {/* Icon Section - مرکزی و بزرگ */}
+                    <div className="relative flex-1 flex flex-col items-center justify-center mb-6">
+                      {/* Glow Behind Icon */}
                       <div
-                        className={`relative ${
+                        className={`absolute w-36 h-36 rounded-full blur-2xl opacity-0 group-hover:opacity-70 transition-all duration-700 ${
                           index === 0
-                            ? "transform group-hover:rotate-12"
+                            ? "bg-cyan-500/40"
                             : index === 1
-                            ? "transform group-hover:-rotate-12"
+                            ? "bg-purple-500/40"
                             : index === 2
-                            ? "transform group-hover:scale-150"
-                            : "transform group-hover:rotate-180"
-                        } transition-all duration-700`}
+                            ? "bg-emerald-500/40"
+                            : "bg-amber-500/40"
+                        }`}
+                      ></div>
+
+                      {/* Icon Container - بزرگ‌تر */}
+                      <div
+                        className={`relative mb-6 transform transition-all duration-700 ${
+                          index === 0
+                            ? "group-hover:rotate-12 group-hover:scale-125"
+                            : index === 1
+                            ? "group-hover:-rotate-12 group-hover:scale-125"
+                            : index === 2
+                            ? "group-hover:scale-150"
+                            : "group-hover:rotate-6 group-hover:scale-125"
+                        }`}
                       >
-                        {/* هاله نور */}
                         <div
-                          className={`absolute inset-0 w-28 h-28 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700 ${
+                          className={`absolute inset-0 w-28 h-28 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700 ${
                             index === 0
-                              ? "bg-cyan-500/40"
+                              ? "bg-cyan-500/50"
                               : index === 1
-                              ? "bg-pink-500/40"
+                              ? "bg-purple-500/50"
                               : index === 2
-                              ? "bg-emerald-500/40"
-                              : "bg-amber-500/40"
+                              ? "bg-emerald-500/50"
+                              : "bg-amber-500/50"
                           }`}
                         ></div>
 
-                        {/* کانتینر آیکون */}
                         <div
-                          className={`w-24 h-24 rounded-3xl flex items-center justify-center group-hover:scale-125 transition-all duration-500 shadow-2xl border-4 backdrop-blur-sm relative overflow-hidden ${
+                          className={`relative w-24 h-24 rounded-2xl flex items-center justify-center backdrop-blur-md border-3 ${
                             index === 0
-                              ? "bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border-cyan-400/80"
+                              ? "bg-gradient-to-br from-cyan-500/30 to-blue-500/20 border-cyan-400/70 group-hover:border-cyan-300"
                               : index === 1
-                              ? "bg-gradient-to-br from-pink-500/20 to-purple-500/20 border-pink-400/80"
+                              ? "bg-gradient-to-br from-purple-500/30 to-pink-500/20 border-purple-400/70 group-hover:border-pink-300"
                               : index === 2
-                              ? "bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border-emerald-400/80"
-                              : "bg-gradient-to-br from-amber-500/20 to-orange-500/20 border-amber-400/80"
-                          }`}
+                              ? "bg-gradient-to-br from-emerald-500/30 to-teal-500/20 border-emerald-400/70 group-hover:border-emerald-300"
+                              : "bg-gradient-to-br from-amber-500/30 to-orange-500/20 border-amber-400/70 group-hover:border-amber-300"
+                          } transition-all duration-500 shadow-2xl`}
                         >
-                          {/* بکگراند داینامیک */}
-                          <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10"></div>
-
-                          {/* آیکون */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-black/10 rounded-2xl"></div>
                           <feature.icon
-                            className={`w-12 h-12 drop-shadow-2xl ${
+                            className={`w-14 h-14 drop-shadow-2xl relative z-10 ${
                               index === 0
                                 ? "text-cyan-300"
                                 : index === 1
-                                ? "text-pink-300"
+                                ? "text-purple-300"
                                 : index === 2
                                 ? "text-emerald-300"
                                 : "text-amber-300"
                             }`}
                           />
-
-                          {/* افکت شاین */}
-                          <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                          {/* ذرات درخشان */}
-                          <div className="absolute top-2 left-2 w-2 h-2 bg-white rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-500 delay-200"></div>
-                          <div className="absolute bottom-2 right-2 w-1.5 h-1.5 bg-white rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-500 delay-400"></div>
+                          {/* Inner Shine */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/40 to-transparent rounded-2xl opacity-0 group-hover:opacity-50 transition-opacity duration-500"></div>
                         </div>
                       </div>
 
-                      <div>
-                        <h3 className="text-2xl font-black text-white group-hover:text-lime-300 transition-colors duration-300 mb-3 tracking-wide">
-                          {feature.name}
-                        </h3>
-                        <p className="text-base text-slate-300 font-medium leading-relaxed">
-                          {feature.description}
-                        </p>
-                      </div>
+                      {/* Title */}
+                      <h3 className="text-2xl font-black text-white group-hover:text-lime-200 transition-colors duration-500 mb-3 text-center tracking-wide">
+                        {feature.name}
+                      </h3>
 
+                      {/* Description - بزرگ‌تر */}
+                      <p className="text-base text-slate-300/90 font-medium leading-relaxed text-center mb-6 group-hover:text-slate-200 transition-colors duration-300 px-4">
+                        {feature.description}
+                      </p>
+                    </div>
+
+                    {/* Badge - بزرگ‌تر */}
+                    <div className="relative z-10">
                       <Badge
-                        className={`text-base px-4 py-1.5 rounded-full border-0 font-bold shadow-2xl backdrop-blur-sm ${
+                        className={`text-base px-6 py-2.5 rounded-full border-0 font-bold shadow-xl mx-auto ${
                           feature.badge === "جدید"
-                            ? "bg-gradient-to-r from-emerald-500 to-emerald-600 text-white"
+                            ? "bg-gradient-to-r from-emerald-600 to-emerald-500 text-white"
                             : feature.badge === "پرکاربرد"
-                            ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white"
+                            ? "bg-gradient-to-r from-blue-600 to-blue-500 text-white"
                             : feature.badge === "رایگان"
-                            ? "bg-gradient-to-r from-teal-500 to-teal-600 text-white"
+                            ? "bg-gradient-to-r from-teal-600 to-teal-500 text-white"
                             : feature.badge === "مهم"
-                            ? "bg-gradient-to-r from-rose-500 to-rose-600 text-white"
-                            : "bg-gradient-to-r from-cyan-500 to-cyan-600 text-white"
-                        } group-hover:scale-110 transition-transform duration-300`}
+                            ? "bg-gradient-to-r from-rose-600 to-rose-500 text-white"
+                            : "bg-gradient-to-r from-cyan-600 to-cyan-500 text-white"
+                        } group-hover:scale-110 group-hover:shadow-2xl transition-all duration-300 backdrop-blur-sm`}
                       >
                         {feature.badge}
                       </Badge>
                     </div>
+
+                    {/* Bottom Indicators */}
+                    <div className="absolute bottom-4 left-0 right-0 flex justify-center items-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <div className="flex items-center gap-2">
+                        <div
+                          className={`w-2 h-2 rounded-full animate-pulse ${
+                            index === 0
+                              ? "bg-cyan-400"
+                              : index === 1
+                              ? "bg-purple-400"
+                              : index === 2
+                              ? "bg-emerald-400"
+                              : "bg-amber-400"
+                          }`}
+                        ></div>
+                        <span className="text-sm text-slate-400 font-medium">
+                          دسترسی سریع
+                        </span>
+                      </div>
+                      <div className="text-xl transform group-hover:translate-x-2 transition-transform duration-300">
+                        →
+                      </div>
+                    </div>
+
+                    {/* Corner Decorations */}
+                    <div className="absolute top-4 right-4 w-2.5 h-2.5 bg-white/40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 animate-ping"></div>
+                    <div className="absolute top-4 left-4 w-2.5 h-2.5 bg-white/40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200 animate-ping"></div>
+                    <div className="absolute bottom-4 right-4 w-2 h-2 bg-white/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-300"></div>
+                    <div className="absolute bottom-4 left-4 w-2 h-2 bg-white/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-400"></div>
                   </div>
                 </div>
               ))}
             </div>
 
-            {/* بخش دکوراتیو وسط */}
-            <div className="relative flex items-center justify-center gap-6 py-12">
-              {/* Left gradient line */}
-              <div className="h-1 flex-1 relative overflow-hidden rounded-full">
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-lime-400 to-emerald-500 animate-pulse"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-400 to-blue-500 animate-pulse animation-delay-500 opacity-70"></div>
-                <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,rgba(255,255,255,0.4)_50%,transparent_100%)] bg-[length:200%_100%] animate-shimmer"></div>
-              </div>
+            {/* Decorative Section - خط تزئینی زیبا با رنگ‌های زرشکی و نیلی */}
+            <div className="relative py-12">
+              <div className="relative h-1.5 overflow-hidden rounded-full mx-12 bg-gradient-to-r from-slate-800/50 via-slate-800/30 to-slate-800/50">
+                {/* Shadow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-900/20 to-transparent"></div>
 
-              {/* Center decorative element */}
-              <div className="relative">
-                {/* Outer glow ring */}
-                <div className="absolute inset-0 -m-8 bg-gradient-to-r from-lime-500/30 via-emerald-500/30 to-cyan-500/30 rounded-full blur-2xl animate-pulse-slow"></div>
+                {/* Main Gradient Line - ترکیب رنگی زرشکی و نیلی */}
+                <div className="absolute inset-0 bg-gradient-to-r from-fuchsia-600 via-purple-600 to-violet-600 animate-gradient-flow"></div>
 
-                {/* Main center piece */}
-                <div className="relative flex items-center gap-3 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 px-8 py-4 rounded-full border-2 border-lime-400/60 shadow-2xl shadow-lime-500/50">
-                  {/* Animated dots */}
-                  <div className="flex gap-2">
-                    <div className="w-3 h-3 bg-gradient-to-r from-lime-400 to-emerald-400 rounded-full animate-bounce shadow-lg shadow-lime-400/80"></div>
-                    <div className="w-3 h-3 bg-gradient-to-r from-emerald-400 to-cyan-400 rounded-full animate-bounce animation-delay-200 shadow-lg shadow-emerald-400/80"></div>
-                    <div className="w-3 h-3 bg-gradient-to-r from-cyan-400 to-blue-400 rounded-full animate-bounce animation-delay-400 shadow-lg shadow-cyan-400/80"></div>
-                  </div>
+                {/* Sparkle Overlay */}
+                <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_0%,rgba(255,255,255,0.3)_50%,transparent_100%)] bg-[length:200%_100%] animate-shimmer"></div>
 
-                  {/* Sparkle icon */}
-                  <div className="text-2xl animate-spin-slow">✨</div>
+                {/* Pulsing Effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-rose-500/40 via-fuchsia-500/40 to-indigo-500/40 animate-pulse-slow opacity-70"></div>
 
-                  {/* More animated dots */}
-                  <div className="flex gap-2">
-                    <div className="w-3 h-3 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full animate-bounce animation-delay-100 shadow-lg shadow-blue-400/80"></div>
-                    <div className="w-3 h-3 bg-gradient-to-r from-cyan-400 to-emerald-400 rounded-full animate-bounce animation-delay-300 shadow-lg shadow-cyan-400/80"></div>
-                    <div className="w-3 h-3 bg-gradient-to-r from-emerald-400 to-lime-400 rounded-full animate-bounce animation-delay-500 shadow-lg shadow-emerald-400/80"></div>
+                {/* Floating Orbs */}
+                <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-gradient-to-br from-rose-400 to-fuchsia-500 rounded-full animate-float shadow-lg shadow-rose-500/60"></div>
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-gradient-to-br from-purple-400 to-violet-500 rounded-full animate-float shadow-lg shadow-purple-500/60 animation-delay-1000"></div>
+                <div className="absolute top-1/2 left-3/4 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-gradient-to-br from-violet-400 to-indigo-500 rounded-full animate-float shadow-lg shadow-violet-500/60 animation-delay-2000"></div>
+
+                {/* End Points */}
+                <div className="absolute left-0 top-1/2 -translate-y-1/2">
+                  <div className="relative">
+                    <div className="w-6 h-6 bg-gradient-to-br from-rose-500 to-fuchsia-600 rounded-full animate-pulse shadow-xl shadow-rose-500/50"></div>
+                    <div className="absolute inset-0 w-6 h-6 bg-gradient-to-br from-rose-500 to-fuchsia-600 rounded-full animate-ping opacity-30"></div>
                   </div>
                 </div>
 
-                {/* Floating particles around center */}
-                <div className="absolute -top-2 -right-2 w-2 h-2 bg-lime-400 rounded-full animate-ping"></div>
-                <div className="absolute -bottom-2 -left-2 w-2 h-2 bg-cyan-400 rounded-full animate-ping animation-delay-300"></div>
-                <div className="absolute -top-2 -left-2 w-2 h-2 bg-emerald-400 rounded-full animate-ping animation-delay-500"></div>
-                <div className="absolute -bottom-2 -right-2 w-2 h-2 bg-blue-400 rounded-full animate-ping animation-delay-700"></div>
+                <div className="absolute right-0 top-1/2 -translate-y-1/2">
+                  <div className="relative">
+                    <div className="w-6 h-6 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-full animate-pulse shadow-xl shadow-indigo-500/50"></div>
+                    <div className="absolute inset-0 w-6 h-6 bg-gradient-to-br from-indigo-500 to-violet-600 rounded-full animate-ping opacity-30 animation-delay-500"></div>
+                  </div>
+                </div>
               </div>
 
-              {/* Right gradient line */}
-              <div className="h-1 flex-1 relative overflow-hidden rounded-full">
-                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-cyan-400 to-blue-500 animate-pulse"></div>
-                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-emerald-400 to-lime-500 animate-pulse animation-delay-500 opacity-70"></div>
-                <div className="absolute inset-0 bg-[linear-gradient(270deg,transparent_0%,rgba(255,255,255,0.4)_50%,transparent_100%)] bg-[length:200%_100%] animate-shimmer"></div>
+              {/* Center Emblem */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+                <div className="relative">
+                  <div className="absolute inset-0 -m-4 bg-gradient-to-r from-rose-500/30 via-purple-500/30 to-violet-500/30 rounded-full blur-2xl animate-pulse-slow"></div>
+                  <div className="relative bg-gradient-to-br from-slate-900/95 to-slate-800/95 backdrop-blur-xl rounded-full border-2 border-fuchsia-500/60 p-3 shadow-2xl shadow-fuchsia-500/50">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-rose-500/20 via-purple-500/20 to-violet-500/20 flex items-center justify-center border border-fuchsia-400/40">
+                      <div className="text-2xl animate-spin-slow">✦</div>
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10 rounded-full"></div>
+                    </div>
+                    <div className="absolute -top-1 -right-1 w-2 h-2 bg-rose-400 rounded-full animate-ping"></div>
+                    <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-violet-400 rounded-full animate-ping animation-delay-300"></div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* ردیف دوم - 8 آیکون با استایل‌های متنوع */}
-            <div className="grid md:grid-cols-4 lg:grid-cols-8 gap-8">
+            {/* 8 Feature Boxes - مستطیل‌های زیبا */}
+            <div className="grid md:grid-cols-4 lg:grid-cols-4 gap-4">
               {homeFeatures.slice(4).map((feature, index) => (
                 <div
                   key={index + 4}
                   onClick={() => handleFeatureClick(feature.action)}
-                  className="group relative cursor-pointer animate-fade-in-up"
-                  style={{ animationDelay: `${(index + 4) * 0.1}s` }}
+                  className="group relative cursor-pointer animate-fade-in-up h-full"
+                  style={{ animationDelay: `${(index + 4) * 0.08}s` }}
                 >
-                  {/* Background Glow Effect با رنگ‌های مختلف */}
+                  {/* Hover Glow Background */}
                   <div
-                    className={`absolute inset-0 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl -inset-4 ${
+                    className={`absolute -inset-2 rounded-2xl blur-xl opacity-0 group-hover:opacity-80 transition-all duration-500 ${
                       index % 4 === 0
-                        ? "bg-gradient-to-r from-blue-500/40 via-cyan-500/40 to-lime-500/40"
+                        ? "bg-gradient-to-br from-cyan-500/40 via-blue-500/20 to-transparent"
                         : index % 4 === 1
-                        ? "bg-gradient-to-r from-purple-500/40 via-pink-500/40 to-rose-500/40"
+                        ? "bg-gradient-to-br from-pink-500/40 via-rose-500/20 to-transparent"
                         : index % 4 === 2
-                        ? "bg-gradient-to-r from-emerald-500/40 via-teal-500/40 to-cyan-500/40"
-                        : "bg-gradient-to-r from-orange-500/40 via-amber-500/40 to-yellow-500/40"
+                        ? "bg-gradient-to-br from-emerald-500/40 via-teal-500/20 to-transparent"
+                        : "bg-gradient-to-br from-amber-500/40 via-orange-500/20 to-transparent"
                     }`}
                   ></div>
 
-                  {/* Main Content */}
-                  <div className="relative space-y-4 flex flex-col items-center justify-center text-center p-6 transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2">
-                    {/* Icon Container با طرح‌های مختلف */}
-                    <div className="relative">
-                      {/* Outer Glow */}
-                      <div
-                        className={`absolute inset-0 w-20 h-20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:scale-150 ${
-                          index % 4 === 0
-                            ? "bg-cyan-500/30"
-                            : index % 4 === 1
-                            ? "bg-pink-500/30"
-                            : index % 4 === 2
-                            ? "bg-emerald-500/30"
-                            : "bg-amber-500/30"
-                        }`}
-                      ></div>
+                  {/* Main Container - Rectangular Shape */}
+                  <div
+                    className={`relative h-full backdrop-blur-xl rounded-2xl border-2 p-5 transition-all duration-500 flex flex-col overflow-hidden
+              group-hover:scale-[1.03] group-hover:-translate-y-1 group-hover:shadow-xl ${
+                index % 4 === 0
+                  ? "bg-gradient-to-br from-cyan-900/30 via-slate-900/50 to-blue-900/30 border-cyan-500/40 group-hover:border-cyan-400 group-hover:shadow-cyan-500/30"
+                  : index % 4 === 1
+                  ? "bg-gradient-to-br from-pink-900/30 via-slate-900/50 to-rose-900/30 border-pink-500/40 group-hover:border-pink-400 group-hover:shadow-pink-500/30"
+                  : index % 4 === 2
+                  ? "bg-gradient-to-br from-emerald-900/30 via-slate-900/50 to-teal-900/30 border-emerald-500/40 group-hover:border-emerald-400 group-hover:shadow-emerald-500/30"
+                  : "bg-gradient-to-br from-amber-900/30 via-slate-900/50 to-orange-900/30 border-amber-500/40 group-hover:border-amber-400 group-hover:shadow-amber-500/30"
+              }`}
+                  >
+                    {/* Shine Effect */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
 
-                      {/* Main Icon با انیمیشن‌های مختلف */}
+                    {/* Top Gradient Accent */}
+                    <div
+                      className={`absolute top-0 left-0 right-0 h-1 rounded-t-2xl ${
+                        index % 4 === 0
+                          ? "bg-gradient-to-r from-cyan-400 to-blue-500"
+                          : index % 4 === 1
+                          ? "bg-gradient-to-r from-pink-400 to-rose-500"
+                          : index % 4 === 2
+                          ? "bg-gradient-to-r from-emerald-400 to-teal-500"
+                          : "bg-gradient-to-r from-amber-400 to-orange-500"
+                      }`}
+                    ></div>
+
+                    {/* Icon Container */}
+                    <div className="relative mb-4 flex items-center gap-4">
                       <div
-                        className={`relative w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-125 transition-all duration-500 shadow-2xl border-3 backdrop-blur-sm relative overflow-hidden ${
+                        className={`relative ${
                           index % 4 === 0
-                            ? "bg-gradient-to-br from-cyan-500/15 to-blue-500/15 border-cyan-400/60 group-hover:border-cyan-300/80 group-hover:shadow-cyan-400/50 transform group-hover:rotate-12"
+                            ? "group-hover:rotate-6"
                             : index % 4 === 1
-                            ? "bg-gradient-to-br from-pink-500/15 to-purple-500/15 border-pink-400/60 group-hover:border-pink-300/80 group-hover:shadow-pink-400/50 transform group-hover:-rotate-12"
+                            ? "group-hover:-rotate-6"
                             : index % 4 === 2
-                            ? "bg-gradient-to-br from-emerald-500/15 to-teal-500/15 border-emerald-400/60 group-hover:border-emerald-300/80 group-hover:shadow-emerald-400/50 transform group-hover:scale-150"
-                            : "bg-gradient-to-br from-amber-500/15 to-orange-500/15 border-amber-400/60 group-hover:border-amber-300/80 group-hover:shadow-amber-400/50 transform group-hover:rotate-180"
-                        }`}
+                            ? "group-hover:scale-110"
+                            : "group-hover:rotate-12"
+                        } transition-all duration-500`}
                       >
-                        {/* بکگراند داینامیک */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10"></div>
-
-                        {/* آیکون */}
-                        <feature.icon
-                          className={`w-8 h-8 drop-shadow-lg ${
+                        <div
+                          className={`absolute inset-0 w-12 h-12 rounded-xl blur-md opacity-0 group-hover:opacity-100 transition-all duration-500 ${
                             index % 4 === 0
-                              ? "text-cyan-300"
+                              ? "bg-cyan-500/50"
                               : index % 4 === 1
-                              ? "text-pink-300"
+                              ? "bg-pink-500/50"
                               : index % 4 === 2
-                              ? "text-emerald-300"
-                              : "text-amber-300"
+                              ? "bg-emerald-500/50"
+                              : "bg-amber-500/50"
                           }`}
-                        />
+                        ></div>
 
-                        {/* افکت شاین */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div
+                          className={`relative w-12 h-12 rounded-xl flex items-center justify-center backdrop-blur-sm border ${
+                            index % 4 === 0
+                              ? "bg-gradient-to-br from-cyan-500/20 to-blue-500/10 border-cyan-400/50 group-hover:border-cyan-300"
+                              : index % 4 === 1
+                              ? "bg-gradient-to-br from-pink-500/20 to-rose-500/10 border-pink-400/50 group-hover:border-pink-300"
+                              : index % 4 === 2
+                              ? "bg-gradient-to-br from-emerald-500/20 to-teal-500/10 border-emerald-400/50 group-hover:border-emerald-300"
+                              : "bg-gradient-to-br from-amber-500/20 to-orange-500/10 border-amber-400/50 group-hover:border-amber-300"
+                          } transition-all duration-300`}
+                        >
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/5 rounded-xl"></div>
+                          <feature.icon
+                            className={`w-6 h-6 drop-shadow-lg relative z-10 ${
+                              index % 4 === 0
+                                ? "text-cyan-300"
+                                : index % 4 === 1
+                                ? "text-pink-300"
+                                : index % 4 === 2
+                                ? "text-emerald-300"
+                                : "text-amber-300"
+                            }`}
+                          />
+                        </div>
+                      </div>
 
-                        {/* ذرات درخشان */}
-                        <div className="absolute top-1 left-1 w-1.5 h-1.5 bg-white rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-500 delay-100"></div>
-                        <div className="absolute bottom-1 right-1 w-1 h-1 bg-white rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-500 delay-300"></div>
+                      {/* Badge */}
+                      <div className="flex-1">
+                        <Badge
+                          className={`text-xs px-3 py-1 rounded-full border-0 font-bold shadow-md ${
+                            feature.badge === "AI"
+                              ? "bg-gradient-to-r from-cyan-600/90 to-cyan-500/90 text-white"
+                              : feature.badge === "گواهی"
+                              ? "bg-gradient-to-r from-indigo-600/90 to-indigo-500/90 text-white"
+                              : feature.badge === "🔴 زنده"
+                              ? "bg-gradient-to-r from-red-600/90 to-red-500/90 text-white animate-pulse"
+                              : feature.badge === "جایزه"
+                              ? "bg-gradient-to-r from-orange-600/90 to-orange-500/90 text-white"
+                              : feature.badge === "کسب‌وکار"
+                              ? "bg-gradient-to-r from-violet-600/90 to-violet-500/90 text-white"
+                              : "bg-gradient-to-r from-fuchsia-600/90 to-fuchsia-500/90 text-white"
+                          } group-hover:scale-105 transition-transform duration-300`}
+                        >
+                          {feature.badge}
+                        </Badge>
                       </div>
                     </div>
 
-                    {/* Text Content */}
-                    <div className="space-y-2">
-                      <h3 className="text-sm font-bold text-white group-hover:text-lime-300 transition-colors duration-300 tracking-wide drop-shadow-lg">
+                    {/* Content */}
+                    <div className="space-y-3 flex-1">
+                      <h3 className="text-sm font-bold text-white group-hover:text-lime-200 transition-colors duration-300 leading-tight">
                         {feature.name}
                       </h3>
-                      <p className="text-xs text-slate-300 font-medium leading-relaxed group-hover:text-slate-200 transition-colors duration-300">
+                      <p className="text-xs text-slate-300/90 font-medium leading-relaxed group-hover:text-slate-200 transition-colors duration-300 line-clamp-2">
                         {feature.description}
                       </p>
                     </div>
 
-                    {/* Badge */}
-                    <Badge
-                      className={`text-xs px-2 py-0.5 rounded-full border-0 font-medium shadow-lg backdrop-blur-sm ${
-                        feature.badge === "AI"
-                          ? "bg-gradient-to-r from-cyan-500 to-cyan-600 text-white"
-                          : feature.badge === "گواهی"
-                          ? "bg-gradient-to-r from-indigo-500 to-indigo-600 text-white"
-                          : feature.badge === "🔴 زنده"
-                          ? "bg-gradient-to-r from-red-500 to-red-600 text-white animate-pulse"
-                          : feature.badge === "جایزه"
-                          ? "bg-gradient-to-r from-orange-500 to-orange-600 text-white"
-                          : feature.badge === "کسب‌وکار"
-                          ? "bg-gradient-to-r from-violet-500 to-violet-600 text-white"
-                          : feature.badge === "عملی"
-                          ? "bg-gradient-to-r from-cyan-500 to-cyan-600 text-white"
-                          : "bg-gradient-to-r from-fuchsia-500 to-fuchsia-600 text-white"
-                      } transform group-hover:scale-105 group-hover:-translate-y-0.5 transition-all duration-300`}
-                    >
-                      {feature.badge}
-                    </Badge>
-
-                    {/* Hover Line Effect */}
-                    <div className="absolute bottom-0 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-transparent via-lime-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200"></div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* ردیف دوم - 8 آیکون با استایل‌های متنوع */}
-            <div className="grid md:grid-cols-4 lg:grid-cols-8 gap-8">
-              {homeFeatures.slice(4).map((feature, index) => (
-                <div
-                  key={index + 4}
-                  onClick={() => handleFeatureClick(feature.action)}
-                  className="group relative cursor-pointer animate-fade-in-up"
-                  style={{ animationDelay: `${(index + 4) * 0.1}s` }}
-                >
-                  {/* Background Glow Effect با رنگ‌های مختلف */}
-                  <div
-                    className={`absolute inset-0 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl -inset-4 ${
-                      index % 4 === 0
-                        ? "bg-gradient-to-r from-blue-500/40 via-cyan-500/40 to-lime-500/40"
-                        : index % 4 === 1
-                        ? "bg-gradient-to-r from-purple-500/40 via-pink-500/40 to-rose-500/40"
-                        : index % 4 === 2
-                        ? "bg-gradient-to-r from-emerald-500/40 via-teal-500/40 to-cyan-500/40"
-                        : "bg-gradient-to-r from-orange-500/40 via-amber-500/40 to-yellow-500/40"
-                    }`}
-                  ></div>
-
-                  {/* Main Content */}
-                  <div className="relative space-y-4 flex flex-col items-center justify-center text-center p-6 transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2">
-                    {/* Icon Container با طرح‌های مختلف */}
-                    <div className="relative">
-                      {/* Outer Glow */}
-                      <div
-                        className={`absolute inset-0 w-20 h-20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-all duration-500 group-hover:scale-150 ${
-                          index % 4 === 0
-                            ? "bg-cyan-500/30"
-                            : index % 4 === 1
-                            ? "bg-pink-500/30"
-                            : index % 4 === 2
-                            ? "bg-emerald-500/30"
-                            : "bg-amber-500/30"
-                        }`}
-                      ></div>
-
-                      {/* Main Icon با انیمیشن‌های مختلف */}
-                      <div
-                        className={`relative w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-125 transition-all duration-500 shadow-2xl border-3 backdrop-blur-sm relative overflow-hidden ${
-                          index % 4 === 0
-                            ? "bg-gradient-to-br from-cyan-500/15 to-blue-500/15 border-cyan-400/60 group-hover:border-cyan-300/80 group-hover:shadow-cyan-400/50 transform group-hover:rotate-12"
-                            : index % 4 === 1
-                            ? "bg-gradient-to-br from-pink-500/15 to-purple-500/15 border-pink-400/60 group-hover:border-pink-300/80 group-hover:shadow-pink-400/50 transform group-hover:-rotate-12"
-                            : index % 4 === 2
-                            ? "bg-gradient-to-br from-emerald-500/15 to-teal-500/15 border-emerald-400/60 group-hover:border-emerald-300/80 group-hover:shadow-emerald-400/50 transform group-hover:scale-150"
-                            : "bg-gradient-to-br from-amber-500/15 to-orange-500/15 border-amber-400/60 group-hover:border-amber-300/80 group-hover:shadow-amber-400/50 transform group-hover:rotate-180"
-                        }`}
-                      >
-                        {/* بکگراند داینامیک */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/10"></div>
-
-                        {/* آیکون */}
-                        <feature.icon
-                          className={`w-8 h-8 drop-shadow-lg ${
-                            index % 4 === 0
-                              ? "text-cyan-300"
-                              : index % 4 === 1
-                              ? "text-pink-300"
-                              : index % 4 === 2
-                              ? "text-emerald-300"
-                              : "text-amber-300"
-                          }`}
-                        />
-
-                        {/* افکت شاین */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/30 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                        {/* ذرات درخشان */}
-                        <div className="absolute top-1 left-1 w-1.5 h-1.5 bg-white rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-500 delay-100"></div>
-                        <div className="absolute bottom-1 right-1 w-1 h-1 bg-white rounded-full opacity-0 group-hover:opacity-100 animate-ping transition-opacity duration-500 delay-300"></div>
+                    {/* Bottom Indicator */}
+                    <div className="mt-4 pt-3 border-t border-slate-700/50 group-hover:border-slate-600/70 transition-colors duration-300">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-1">
+                          <div
+                            className={`w-2 h-2 rounded-full animate-pulse ${
+                              index % 4 === 0
+                                ? "bg-cyan-400"
+                                : index % 4 === 1
+                                ? "bg-pink-400"
+                                : index % 4 === 2
+                                ? "bg-emerald-400"
+                                : "bg-amber-400"
+                            }`}
+                          ></div>
+                          <span className="text-xs text-slate-400 group-hover:text-slate-300 transition-colors duration-300">
+                            کلیک کنید
+                          </span>
+                        </div>
+                        <div className="text-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform group-hover:translate-x-0 translate-x-2">
+                          →
+                        </div>
                       </div>
                     </div>
 
-                    {/* Text Content */}
-                    <div className="space-y-2">
-                      <h3 className="text-sm font-bold text-white group-hover:text-lime-300 transition-colors duration-300 tracking-wide drop-shadow-lg">
-                        {feature.name}
-                      </h3>
-                      <p className="text-xs text-slate-300 font-medium leading-relaxed group-hover:text-slate-200 transition-colors duration-300">
-                        {feature.description}
-                      </p>
-                    </div>
-
-                    {/* Badge */}
-                    <Badge
-                      className={`text-xs px-2 py-0.5 rounded-full border-0 font-medium shadow-lg backdrop-blur-sm ${
-                        feature.badge === "AI"
-                          ? "bg-gradient-to-r from-cyan-500 to-cyan-600 text-white"
-                          : feature.badge === "گواهی"
-                          ? "bg-gradient-to-r from-indigo-500 to-indigo-600 text-white"
-                          : feature.badge === "🔴 زنده"
-                          ? "bg-gradient-to-r from-red-500 to-red-600 text-white animate-pulse"
-                          : feature.badge === "جایزه"
-                          ? "bg-gradient-to-r from-orange-500 to-orange-600 text-white"
-                          : feature.badge === "کسب‌وکار"
-                          ? "bg-gradient-to-r from-violet-500 to-violet-600 text-white"
-                          : feature.badge === "عملی"
-                          ? "bg-gradient-to-r from-cyan-500 to-cyan-600 text-white"
-                          : "bg-gradient-to-r from-fuchsia-500 to-fuchsia-600 text-white"
-                      } transform group-hover:scale-105 group-hover:-translate-y-0.5 transition-all duration-300`}
-                    >
-                      {feature.badge}
-                    </Badge>
-
-                    {/* Hover Line Effect */}
-                    <div className="absolute bottom-0 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-transparent via-lime-400 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-200"></div>
+                    {/* Corner Dots */}
+                    <div className="absolute top-2 right-2 w-1.5 h-1.5 bg-white/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100"></div>
+                    <div className="absolute top-2 left-2 w-1.5 h-1.5 bg-white/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-200"></div>
+                    <div className="absolute bottom-2 right-2 w-1.5 h-1.5 bg-white/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-300"></div>
+                    <div className="absolute bottom-2 left-2 w-1.5 h-1.5 bg-white/30 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-400"></div>
                   </div>
                 </div>
               ))}
@@ -1572,142 +1565,306 @@ export default function ICYRANDashboard() {
         </div>
       </div>
 
-      <div className="relative z-10 space-y-8">
-        <div className="text-center space-y-4">
-          <h2 className="text-4xl font-bold bg-gradient-to-r from-cyan-300 via-blue-300 to-sky-300 bg-clip-text text-transparent">
-            ویدیو معرفی اپلیکیشن
-          </h2>
-          <p className="text-slate-300 text-lg md:text-xl">
-            آشنایی با امکانات و ویژگی‌های آیسیران
-          </p>
+      <div className="relative z-10 space-y-16">
+        {/* Ultra Minimal Header with Enhanced Design */}
+        <div className="text-center space-y-8">
+          <div className="relative inline-block">
+            <div className="absolute -inset-8 bg-gradient-to-r from-rose-500/20 via-purple-500/20 to-fuchsia-500/20 rounded-full blur-3xl animate-pulse-slow opacity-30"></div>
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-r from-rose-500/10 via-purple-500/10 to-fuchsia-500/10 rounded-full blur-xl"></div>
+              <h2 className="relative text-5xl md:text-6xl font-black bg-gradient-to-r from-rose-300 via-purple-300 to-fuchsia-300 bg-clip-text text-transparent tracking-tight">
+                ویدیو معرفی اپلیکیشن
+              </h2>
+            </div>
+          </div>
+
+          <div className="relative">
+            <div className="absolute inset-x-0 top-1/2 h-px bg-gradient-to-r from-transparent via-slate-600/50 to-transparent"></div>
+            <p className="relative text-slate-300 text-xl font-medium bg-slate-900/50 px-6 inline-block">
+              درباره آکادمی آیسیران
+            </p>
+          </div>
+
+          <div className="flex justify-center gap-2">
+            <div className="w-2 h-2 bg-gradient-to-r from-rose-400 to-rose-500 rounded-full animate-pulse shadow-lg shadow-rose-500/50"></div>
+            <div className="w-2 h-2 bg-gradient-to-r from-purple-400 to-purple-500 rounded-full animate-pulse animation-delay-200 shadow-lg shadow-purple-500/50"></div>
+            <div className="w-2 h-2 bg-gradient-to-r from-fuchsia-400 to-fuchsia-500 rounded-full animate-pulse animation-delay-400 shadow-lg shadow-fuchsia-500/50"></div>
+          </div>
         </div>
 
-        <div className="max-w-3xl mx-auto">
+        {/* Enhanced Video Box - Fixed */}
+        <div className="max-w-3xl mx-auto px-4">
           <div className="relative group">
-            <div className="absolute -inset-4 bg-gradient-to-r from-rose-500/50 via-purple-500/50 to-fuchsia-500/50 rounded-[3rem] blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+            {/* Removed heavy glow effects to prevent lag */}
+            <div className="absolute -inset-4 bg-gradient-to-br from-rose-500/5 via-purple-500/5 to-fuchsia-500/5 rounded-[2rem] blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
 
-            {/* Decorative corner elements with red/purple colors */}
-            <div className="absolute -top-6 -left-6 w-24 h-24 border-t-4 border-l-4 border-rose-400/70 rounded-tl-3xl group-hover:border-purple-400 transition-colors duration-500"></div>
-            <div className="absolute -top-6 -right-6 w-24 h-24 border-t-4 border-r-4 border-purple-400/70 rounded-tr-3xl group-hover:border-fuchsia-400 transition-colors duration-500"></div>
-            <div className="absolute -bottom-6 -left-6 w-24 h-24 border-b-4 border-l-4 border-fuchsia-400/70 rounded-bl-3xl group-hover:border-rose-400 transition-colors duration-500"></div>
-            <div className="absolute -bottom-6 -right-6 w-24 h-24 border-b-4 border-r-4 border-purple-400/70 rounded-br-3xl group-hover:border-rose-400 transition-colors duration-500"></div>
+            {/* Main Video Container */}
+            <div className="relative bg-gradient-to-br from-slate-900/70 via-slate-800/70 to-slate-900/70 backdrop-blur-xl border-2 border-gradient-to-r from-rose-500/30 via-purple-500/30 to-fuchsia-500/30 rounded-[2.5rem] p-6 transition-all duration-300 group-hover:scale-[1.015] group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-purple-500/30 overflow-hidden">
+              {/* Corner Accents */}
+              <div className="absolute top-6 right-6 w-4 h-4">
+                <div className="absolute inset-0 border-t-2 border-r-2 border-rose-400/50 rounded-tr-lg group-hover:border-fuchsia-400 transition-all duration-300"></div>
+              </div>
+              <div className="absolute top-6 left-6 w-4 h-4">
+                <div className="absolute inset-0 border-t-2 border-l-2 border-purple-400/50 rounded-tl-lg group-hover:border-rose-400 transition-all duration-300"></div>
+              </div>
+              <div className="absolute bottom-6 right-6 w-4 h-4">
+                <div className="absolute inset-0 border-b-2 border-r-2 border-fuchsia-400/50 rounded-br-lg group-hover:border-purple-400 transition-all duration-300"></div>
+              </div>
+              <div className="absolute bottom-6 left-6 w-4 h-4">
+                <div className="absolute inset-0 border-b-2 border-l-2 border-rose-400/50 rounded-bl-lg group-hover:border-fuchsia-400 transition-all duration-300"></div>
+              </div>
 
-            {/* Main video container with red/purple theme */}
-            <div className="relative bg-gradient-to-br from-slate-800/95 to-slate-900/95 backdrop-blur-2xl border-4 border-rose-400/50 rounded-[2.5rem] p-6 md:p-8 transition-all duration-500 group-hover:border-purple-400/80 overflow-hidden shadow-2xl group-hover:shadow-purple-500/60">
-              {/* Animated background gradient */}
-              <div className="absolute inset-0 bg-gradient-to-r from-rose-500/10 via-purple-500/10 to-fuchsia-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              {/* Video Container */}
+              <div className="relative">
+                {/* Video Frame */}
+                <div className="relative bg-gradient-to-br from-slate-900/90 via-slate-800/90 to-slate-900/90 rounded-2xl border-2 border-gradient-to-r from-rose-500/40 via-purple-500/40 to-fuchsia-500/40 p-2 shadow-xl group-hover:shadow-2xl group-hover:shadow-purple-500/40 transition-all duration-300 overflow-hidden">
+                  {/* Diamond Corner Accents */}
+                  <div className="absolute top-2 left-2 w-3 h-3 rotate-45 bg-gradient-to-br from-rose-400/80 to-fuchsia-500/80 rounded-sm"></div>
+                  <div className="absolute top-2 right-2 w-3 h-3 rotate-45 bg-gradient-to-br from-purple-400/80 to-rose-500/80 rounded-sm"></div>
+                  <div className="absolute bottom-2 left-2 w-3 h-3 rotate-45 bg-gradient-to-br from-fuchsia-400/80 to-purple-500/80 rounded-sm"></div>
+                  <div className="absolute bottom-2 right-2 w-3 h-3 rotate-45 bg-gradient-to-br from-rose-400/80 to-purple-500/80 rounded-sm"></div>
 
-              {/* Decorative inner border */}
-              <div className="absolute inset-4 border-2 border-dashed border-rose-400/20 rounded-[2rem] group-hover:border-purple-400/40 transition-colors duration-500"></div>
-
-              <div className="relative z-10 space-y-6">
-                {/* Video player with enhanced frame */}
-                <div className="relative">
-                  {/* Video glow with red/purple */}
-                  <div className="absolute -inset-2 bg-gradient-to-r from-rose-400/40 via-purple-400/40 to-fuchsia-400/40 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-
-                  <div className="relative aspect-video bg-slate-900/80 rounded-2xl overflow-hidden border-4 border-rose-400/60 shadow-2xl group-hover:border-purple-400/80 transition-all duration-500">
-                    <video
-                      controls
-                      className="w-full h-full object-cover"
-                      poster="/icyran-app-introduction-video-thumbnail.jpg"
+                  {/* Video Element with Thumbnail */}
+                  <div className="relative aspect-video bg-gradient-to-br from-slate-900 to-slate-800 rounded-lg overflow-hidden border border-slate-700/50 group-hover:border-purple-500/40 transition-all duration-300">
+                    {/* Thumbnail Overlay - Shows before play */}
+                    <div
+                      className="absolute inset-0 z-20 transition-opacity duration-300"
+                      id="videoThumbnail"
                     >
+                      <div className="w-full h-full bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
+                        <div className="text-center space-y-4">
+                          <div
+                            className="w-16 h-16 mx-auto bg-gradient-to-br from-rose-500/90 via-purple-500/90 to-fuchsia-500/90 rounded-full flex items-center justify-center border-2 border-white/20 shadow-2xl cursor-pointer hover:scale-110 transition-transform duration-300"
+                            onClick={() => {
+                              const video =
+                                document.getElementById("introVideo");
+                              const thumbnail =
+                                document.getElementById("videoThumbnail");
+                              video.play();
+                              thumbnail.style.opacity = "0";
+                              thumbnail.style.pointerEvents = "none";
+                            }}
+                          >
+                            <div className="text-2xl text-white ml-1">▶</div>
+                          </div>
+                          <p className="text-slate-300 text-sm">
+                            برای پخش کلیک کنید
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Actual Video - Optimized for performance */}
+                    <video
+                      id="introVideo"
+                      className="w-full h-full object-cover relative z-10"
+                      preload="metadata"
+                      playsInline
+                      onClick={() => {
+                        const video = document.getElementById("introVideo");
+                        const thumbnail =
+                          document.getElementById("videoThumbnail");
+                        if (video.paused) {
+                          video.play();
+                          thumbnail.style.opacity = "0";
+                          thumbnail.style.pointerEvents = "none";
+                        } else {
+                          video.pause();
+                        }
+                      }}
+                      onEnded={() => {
+                        const thumbnail =
+                          document.getElementById("videoThumbnail");
+                        thumbnail.style.opacity = "1";
+                        thumbnail.style.pointerEvents = "auto";
+                      }}
+                    >
+                      {/* Short video (15 seconds test video) */}
                       <source
-                        src="https://www.w3schools.com/html/mov_bbb.mp4"
+                        src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4#t=0,15"
                         type="video/mp4"
                       />
                       مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
                     </video>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-                {/* Feature cards below video with red/purple accents */}
-                <div className="grid md:grid-cols-3 gap-4">
-                  {[
-                    {
-                      icon: "🎯",
-                      title: "آموزش جامع",
-                      desc: "دوره‌های کامل و پروژه‌محور",
-                      color: "rose",
-                    },
-                    {
-                      icon: "👨‍🏫",
-                      title: "منتورهای حرفه‌ای",
-                      desc: "پشتیبانی 24 ساعته",
-                      color: "purple",
-                    },
-                    {
-                      icon: "🏆",
-                      title: "گواهینامه معتبر",
-                      desc: "مدرک بین‌المللی",
-                      color: "fuchsia",
-                    },
-                  ].map((feature, index) => (
-                    <div
-                      key={index}
-                      className={`relative bg-slate-800/60 backdrop-blur-sm border-2 ${
-                        feature.color === "rose"
-                          ? "border-rose-400/40 hover:border-rose-400/70"
-                          : feature.color === "purple"
-                          ? "border-purple-400/40 hover:border-purple-400/70"
-                          : "border-fuchsia-400/40 hover:border-fuchsia-400/70"
-                      } rounded-2xl p-4 hover:scale-105 transition-all duration-300 overflow-hidden group/card`}
-                    >
-                      <div
-                        className={`absolute inset-0 bg-gradient-to-br ${
-                          feature.color === "rose"
-                            ? "from-rose-500/10 to-transparent"
-                            : feature.color === "purple"
-                            ? "from-purple-500/10 to-transparent"
-                            : "from-fuchsia-500/10 to-transparent"
-                        } opacity-0 group-hover/card:opacity-100 transition-opacity duration-300`}
-                      ></div>
+        {/* Enhanced Course Box Section */}
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12 space-y-6">
+            <div className="relative inline-block">
+              <div className="absolute -inset-6 bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-sky-500/10 rounded-full blur-2xl"></div>
+              <div className="relative flex items-center justify-center gap-4">
+                <div className="h-1 w-20 bg-gradient-to-r from-transparent via-cyan-500 to-blue-500 rounded-full shadow-lg shadow-cyan-500/30"></div>
+                <h3 className="text-3xl font-black bg-gradient-to-r from-cyan-300 via-blue-300 to-sky-300 bg-clip-text text-transparent">
+                  دوره‌های منتخب
+                </h3>
+                <div className="h-1 w-20 bg-gradient-to-l from-transparent via-sky-500 to-blue-500 rounded-full shadow-lg shadow-sky-500/30"></div>
+              </div>
+            </div>
+            <p className="text-slate-400 text-lg font-medium">
+              برترین دوره‌های آموزشی آیسیران
+            </p>
+            <div className="flex justify-center gap-2">
+              <div className="w-2 h-2 bg-gradient-to-r from-cyan-400 to-cyan-500 rounded-full animate-pulse shadow-md shadow-cyan-500/50"></div>
+              <div className="w-2 h-2 bg-gradient-to-r from-blue-400 to-blue-500 rounded-full animate-pulse animation-delay-200 shadow-md shadow-blue-500/50"></div>
+              <div className="w-2 h-2 bg-gradient-to-r from-sky-400 to-sky-500 rounded-full animate-pulse animation-delay-400 shadow-md shadow-sky-500/50"></div>
+            </div>
+          </div>
 
-                      <div className="relative z-10">
-                        <div className="text-3xl mb-2 group-hover/card:scale-125 transition-transform duration-300">
-                          {feature.icon}
-                        </div>
-                        <h3 className="text-white font-bold text-base mb-1">
-                          {feature.title}
-                        </h3>
-                        <p className="text-slate-400 text-xs leading-relaxed">
-                          {feature.desc}
-                        </p>
-                      </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Course Box 1 */}
+            <div className="group relative cursor-pointer animate-fade-in-up">
+              <div className="absolute -inset-4 bg-gradient-to-br from-cyan-500/20 via-blue-500/10 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-50 transition-all duration-500"></div>
+
+              <div className="relative bg-gradient-to-br from-slate-900/80 via-slate-800/80 to-slate-900/80 backdrop-blur-xl border-2 border-cyan-500/40 rounded-3xl p-8 transition-all duration-500 group-hover:scale-[1.03] group-hover:-translate-y-3 group-hover:shadow-2xl group-hover:shadow-cyan-500/30 overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-400 rounded-t-3xl"></div>
+
+                <div className="absolute top-6 left-6">
+                  <span className="text-sm px-4 py-2 bg-gradient-to-r from-cyan-600/90 to-blue-600/90 text-white rounded-full font-bold shadow-lg">
+                    جدید
+                  </span>
+                </div>
+
+                <div className="relative mb-8 flex justify-center">
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-cyan-500/30 to-blue-500/30 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="relative w-16 h-16 rounded-xl bg-gradient-to-br from-cyan-500/30 to-blue-500/30 border-2 border-cyan-400/50 flex items-center justify-center group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
+                      <div className="text-2xl">🚀</div>
                     </div>
-                  ))}
+                  </div>
+                </div>
+
+                <div className="space-y-4 text-center">
+                  <h4 className="text-xl font-bold text-white group-hover:text-cyan-200 transition-colors duration-500">
+                    توسعه Frontend پیشرفته
+                  </h4>
+                  <p className="text-slate-300/90 leading-relaxed">
+                    یادگیری React، Next.js و TypeScript با پروژه‌های واقعی
+                  </p>
+
+                  <div className="flex items-center justify-center gap-6 pt-4">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+                      <span className="text-sm text-slate-400 font-medium">
+                        ۴۸ ساعت
+                      </span>
+                    </div>
+                    <div className="w-1 h-1 bg-slate-600 rounded-full"></div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse animation-delay-200"></div>
+                      <span className="text-sm text-slate-400 font-medium">
+                        پروژه‌محور
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Course Box 2 */}
+            <div className="group relative cursor-pointer animate-fade-in-up animation-delay-100">
+              <div className="absolute -inset-4 bg-gradient-to-br from-emerald-500/20 via-teal-500/10 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-50 transition-all duration-500"></div>
+
+              <div className="relative bg-gradient-to-br from-slate-900/80 via-slate-800/80 to-slate-900/80 backdrop-blur-xl border-2 border-emerald-500/40 rounded-3xl p-8 transition-all duration-500 group-hover:scale-[1.03] group-hover:-translate-y-3 group-hover:shadow-2xl group-hover:shadow-emerald-500/30 overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 rounded-t-3xl"></div>
+
+                <div className="absolute top-6 left-6">
+                  <span className="text-sm px-4 py-2 bg-gradient-to-r from-emerald-600/90 to-teal-600/90 text-white rounded-full font-bold shadow-lg">
+                    پرطرفدار
+                  </span>
+                </div>
+
+                <div className="relative mb-8 flex justify-center">
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-emerald-500/30 to-teal-500/30 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="relative w-16 h-16 rounded-xl bg-gradient-to-br from-emerald-500/30 to-teal-500/30 border-2 border-emerald-400/50 flex items-center justify-center group-hover:scale-125 group-hover:-rotate-12 transition-all duration-500">
+                      <div className="text-2xl">🤖</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-4 text-center">
+                  <h4 className="text-xl font-bold text-white group-hover:text-emerald-200 transition-colors duration-500">
+                    هوش مصنوعی کاربردی
+                  </h4>
+                  <p className="text-slate-300/90 leading-relaxed">
+                    یادگیری AI، مدل‌های زبانی و کاربردهای عملی
+                  </p>
+
+                  <div className="flex items-center justify-center gap-6 pt-4">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+                      <span className="text-sm text-slate-400 font-medium">
+                        ۳۶ ساعت
+                      </span>
+                    </div>
+                    <div className="w-1 h-1 bg-slate-600 rounded-full"></div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-teal-400 rounded-full animate-pulse animation-delay-200"></div>
+                      <span className="text-sm text-slate-400 font-medium">
+                        AI محور
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Course Box 3 */}
+            <div className="group relative cursor-pointer animate-fade-in-up animation-delay-200">
+              <div className="absolute -inset-4 bg-gradient-to-br from-amber-500/20 via-orange-500/10 to-transparent rounded-2xl blur-xl opacity-0 group-hover:opacity-50 transition-all duration-500"></div>
+
+              <div className="relative bg-gradient-to-br from-slate-900/80 via-slate-800/80 to-slate-900/80 backdrop-blur-xl border-2 border-amber-500/40 rounded-3xl p-8 transition-all duration-500 group-hover:scale-[1.03] group-hover:-translate-y-3 group-hover:shadow-2xl group-hover:shadow-amber-500/30 overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-amber-400 via-orange-400 to-yellow-400 rounded-t-3xl"></div>
+
+                <div className="absolute top-6 left-6">
+                  <span className="text-sm px-4 py-2 bg-gradient-to-r from-amber-600/90 to-orange-600/90 text-white rounded-full font-bold shadow-lg">
+                    ویژه
+                  </span>
+                </div>
+
+                <div className="relative mb-8 flex justify-center">
+                  <div className="relative">
+                    <div className="absolute -inset-4 bg-gradient-to-br from-amber-500/30 to-orange-500/30 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div className="relative w-16 h-16 rounded-xl bg-gradient-to-br from-amber-500/30 to-orange-500/30 border-2 border-amber-400/50 flex items-center justify-center group-hover:scale-125 group-hover:rotate-12 transition-all duration-500">
+                      <div className="text-2xl">🎨</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-4 text-center">
+                  <h4 className="text-xl font-bold text-white group-hover:text-amber-200 transition-colors duration-500">
+                    UI/UX دیزاین پیشرفته
+                  </h4>
+                  <p className="text-slate-300/90 leading-relaxed">
+                    طراحی تجربه کاربری و رابط کاربری حرفه‌ای
+                  </p>
+
+                  <div className="flex items-center justify-center gap-6 pt-4">
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse"></div>
+                      <span className="text-sm text-slate-400 font-medium">
+                        ۴۲ ساعت
+                      </span>
+                    </div>
+                    <div className="w-1 h-1 bg-slate-600 rounded-full"></div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse animation-delay-200"></div>
+                      <span className="text-sm text-slate-400 font-medium">
+                        عملی
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="grid md:grid-cols-4 gap-6">
-        {[
-          {
-            label: "دانشجو فعال",
-            value: "12,450",
-            icon: "👥",
-            endValue: 12450,
-          },
-          { label: "دوره آموزشی", value: "150+", icon: "📚", endValue: 150 },
-          { label: "منتور متخصص", value: "85", icon: "👨‍🏫", endValue: 85 },
-          { label: "ساعت آموزش", value: "5,000+", icon: "⏰", endValue: 5000 },
-        ].map((stat, index) => (
-          <Card
-            key={index}
-            className="bg-slate-800/40 backdrop-blur-xl border-slate-700/50 hover:border-cyan-400/50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-cyan-500/20 hover:scale-105"
-          >
-            <CardContent className="p-6 text-center">
-              <div className="text-2xl mb-3">{stat.icon}</div>
-              <div className="text-2xl font-bold text-white mb-2">
-                <AnimatedCounter value={stat.endValue} duration={2} />
-              </div>
-              <div className="text-slate-300">{stat.label}</div>
-            </CardContent>
-          </Card>
-        ))}
       </div>
 
       <div className="relative text-center space-y-8 p-10 bg-gradient-to-br from-cyan-500/30 via-blue-600/40 to-sky-500/30 backdrop-blur-xl rounded-3xl border-2 border-cyan-400/50 shadow-2xl overflow-hidden">
@@ -1742,6 +1899,10 @@ export default function ICYRANDashboard() {
       </div>
     </div>
   );
+
+
+
+
 
   const renderCourseCategories = () => (
     <div className="space-y-8 pb-24">
@@ -1812,111 +1973,121 @@ export default function ICYRANDashboard() {
     </div>
   );
 
-  const renderCourseList = () => {
-    if (!selectedCategory) return null;
 
-    return (
-      <div className="space-y-8 pb-24">
-        {/* ============================================= */}
-        {/* بک گراند لیست دوره‌ها - همان رنگ دوره‌ها */}
-        {/* ============================================= */}
-        <div className="fixed inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-teal-950 to-slate-950"></div>
-          {/* ترکیب آبی کمرنگ با مشکی و سبز برای لیست دوره‌ها */}
-        </div>
-        {/* ============================================= */}
-        {/* بک گراند لیست دوره‌ها - پایان */}
-        {/* ============================================= */}
+const renderCourseList = () => {
+  if (!selectedCategory) return null;
 
-        <div className="flex items-center justify-between">
-          {renderBackButton(
-            () => setSelectedCategory(null),
-            "بازگشت به دسته‌بندی‌ها"
-          )}
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-300 via-blue-300 to-sky-300 bg-clip-text text-transparent">
-            {selectedCategory.name}
-          </h1>
-          <div className="w-32"></div>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {selectedCategory.courses.map((course) => (
-            <div
-              key={course.id}
-              onClick={() => handleCourseClick(course)}
-              className="group relative cursor-pointer"
-            >
-              <div className="relative bg-gradient-to-br from-slate-900/95 via-cyan-950/90 to-slate-900/95 backdrop-blur-xl border-2 border-cyan-500/30 rounded-3xl overflow-hidden hover:border-cyan-400/60 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/40">
-                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-cyan-400/20 to-transparent rounded-bl-full"></div>
-                <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-emerald-400/20 to-transparent rounded-tr-full"></div>
-
-                <div className="relative h-48 bg-gradient-to-br from-cyan-900/50 via-slate-900/80 to-emerald-900/50 flex items-center justify-center overflow-hidden">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.15),transparent_70%)]"></div>
-                  {course.thumbnail && (
-                    <img
-                      src={course.thumbnail || "/placeholder.svg"}
-                      alt={course.title}
-                      className="w-32 h-32 object-contain relative z-10 group-hover:scale-110 transition-transform duration-500 drop-shadow-2xl"
-                    />
-                  )}
-                  {!course.thumbnail && (
-                    <div className="relative z-10 text-white font-black text-5xl opacity-50">
-                      {course.title.split(" ")[1]}
-                    </div>
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60"></div>
-                </div>
-
-                <div className="p-6 space-y-4 relative z-10">
-                  <div>
-                    <h3 className="text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors duration-300 mb-2 drop-shadow-lg">
-                      {course.title}
-                    </h3>
-                    <p className="text-slate-300 text-sm line-clamp-2 leading-relaxed">
-                      {course.description}
-                    </p>
-                  </div>
-
-                  <div className="space-y-2 text-sm">
-                    <div className="flex items-center gap-2 text-cyan-200">
-                      <Clock className="w-4 h-4 text-cyan-400" />
-                      <span>{course.duration}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-emerald-200">
-                      <Users className="w-4 h-4 text-emerald-400" />
-                      <span>{course.students.toLocaleString()} دانشجو</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sky-200">
-                      <Trophy className="w-4 h-4 text-sky-400" />
-                      <span>{course.level}</span>
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-between pt-4 border-t border-cyan-500/20">
-                    <Badge
-                      className={
-                        course.price === "رایگان"
-                          ? "bg-emerald-500/20 text-emerald-300 border border-emerald-400/50 px-3 py-1"
-                          : "bg-cyan-500/20 text-cyan-300 border border-cyan-400/50 px-3 py-1"
-                      }
-                    >
-                      {course.price}
-                    </Badge>
-                    <div className="w-10 h-10 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-full flex items-center justify-center group-hover:from-cyan-500/50 group-hover:to-emerald-500/50 group-hover:scale-110 transition-all duration-300 border border-cyan-400/30">
-                      <Play className="w-5 h-5 text-cyan-300 group-hover:text-white transition-colors duration-300" />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="absolute inset-0 border-2 border-transparent group-hover:border-cyan-400/40 rounded-3xl transition-colors duration-500"></div>
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-emerald-500/10 to-cyan-500/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
-            </div>
-          ))}
-        </div>
+  return (
+    <div className="space-y-8 pb-24">
+      {/* ============================================= */}
+      {/* بک گراند لیست دوره‌ها - همان رنگ دوره‌ها */}
+      {/* ============================================= */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-teal-950 to-slate-950"></div>
       </div>
-    );
-  };
+      {/* ============================================= */}
+      {/* بک گراند لیست دوره‌ها - پایان */}
+      {/* ============================================= */}
+
+      <div className="flex items-center justify-between">
+        {renderBackButton(
+          () => setSelectedCategory(null),
+          "بازگشت به دسته‌بندی‌ها"
+        )}
+        <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-300 via-blue-300 to-sky-300 bg-clip-text text-transparent">
+          {selectedCategory.name}
+        </h1>
+        <div className="w-32"></div>
+      </div>
+
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {selectedCategory.courses.map((course: any) => (
+          <div
+            key={course.id}
+            onClick={() => handleCourseClick(course)}
+            className="group relative cursor-pointer"
+          >
+            <div className="relative bg-gradient-to-br from-slate-900/95 via-cyan-950/90 to-slate-900/95 backdrop-blur-xl border-2 border-cyan-500/30 rounded-3xl overflow-hidden hover:border-cyan-400/60 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-cyan-500/40">
+              {/* نمایش آیکون قفل اگر دوره رمز دارد */}
+              {course.password && course.password !== "" && (
+                <div className="absolute top-4 left-4 z-20">
+                  <div className="w-10 h-10 bg-gradient-to-br from-yellow-500/90 to-amber-500/90 rounded-full flex items-center justify-center shadow-lg">
+                    <div className="text-white">🔒</div>
+                  </div>
+                </div>
+              )}
+
+              <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-cyan-400/20 to-transparent rounded-bl-full"></div>
+              <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-emerald-400/20 to-transparent rounded-tr-full"></div>
+
+              <div className="relative h-48 bg-gradient-to-br from-cyan-900/50 via-slate-900/80 to-emerald-900/50 flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(6,182,212,0.15),transparent_70%)]"></div>
+                {course.thumbnail && (
+                  <img
+                    src={course.thumbnail || "/placeholder.svg"}
+                    alt={course.title}
+                    className="w-32 h-32 object-contain relative z-10 group-hover:scale-110 transition-transform duration-500 drop-shadow-2xl"
+                  />
+                )}
+                {!course.thumbnail && (
+                  <div className="relative z-10 text-white font-black text-5xl opacity-50">
+                    {course.title.split(" ")[1]}
+                  </div>
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60"></div>
+              </div>
+
+              <div className="p-6 space-y-4 relative z-10">
+                <div>
+                  <h3 className="text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors duration-300 mb-2 drop-shadow-lg">
+                    {course.title}
+                  </h3>
+                  <p className="text-slate-300 text-sm line-clamp-2 leading-relaxed">
+                    {course.description}
+                  </p>
+                </div>
+
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center gap-2 text-cyan-200">
+                    <Clock className="w-4 h-4 text-cyan-400" />
+                    <span>{course.duration}</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-emerald-200">
+                    <Users className="w-4 h-4 text-emerald-400" />
+                    <span>{course.students?.toLocaleString() || 0} دانشجو</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sky-200">
+                    <Trophy className="w-4 h-4 text-sky-400" />
+                    <span>{course.level}</span>
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between pt-4 border-t border-cyan-500/20">
+                  <Badge
+                    className={
+                      course.price === "رایگان"
+                        ? "bg-emerald-500/20 text-emerald-300 border border-emerald-400/50 px-3 py-1"
+                        : "bg-cyan-500/20 text-cyan-300 border border-cyan-400/50 px-3 py-1"
+                    }
+                  >
+                    {course.price}
+                  </Badge>
+                  <div className="w-10 h-10 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-full flex items-center justify-center group-hover:from-cyan-500/50 group-hover:to-emerald-500/50 group-hover:scale-110 transition-all duration-300 border border-cyan-400/30">
+                    <Play className="w-5 h-5 text-cyan-300 group-hover:text-white transition-colors duration-300" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="absolute inset-0 border-2 border-transparent group-hover:border-cyan-400/40 rounded-3xl transition-colors duration-500"></div>
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-emerald-500/10 to-cyan-500/10 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10"></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 
   const renderCourseDetail = () => {
     if (!selectedCourse) return null;
@@ -2046,6 +2217,7 @@ export default function ICYRANDashboard() {
     );
   };
 
+  
   const renderVideoPlayer = () => {
     if (!currentVideo) return null;
 
@@ -2377,6 +2549,7 @@ export default function ICYRANDashboard() {
 
             <div className="grid md:grid-cols-2 gap-8">
               {/* Web Section */}
+
               <Card className="bg-gradient-to-br from-cyan-500/20 to-blue-500/20 backdrop-blur-xl border-cyan-400/50 shadow-2xl shadow-cyan-500/20">
                 <CardContent className="p-8 space-y-6">
                   <div className="flex items-center gap-4">
@@ -2525,125 +2698,408 @@ export default function ICYRANDashboard() {
           </div>
         );
 
-      case "prerequisites":
+      case "prerequisites": {
         return (
-          <div className="space-y-8 pb-24">
-            <div className="flex items-center justify-between">
+          <div className="space-y-8 pb-24 relative">
+            {/* Animated Background Particles */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+              {[...Array(20)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute w-1 h-1 bg-cyan-400/30 rounded-full animate-float"
+                  style={{
+                    left: `${Math.random() * 100}%`,
+                    top: `${Math.random() * 100}%`,
+                    animationDelay: `${Math.random() * 5}s`,
+                    animationDuration: `${3 + Math.random() * 4}s`,
+                  }}
+                />
+              ))}
+            </div>
+
+            <div className="flex items-center justify-between relative z-10">
               {renderBackButton(() => setActiveFeature(null), "بازگشت به خانه")}
-              <h1 className="text-3xl font-bold bg-gradient-to-r from-cyan-300 via-blue-300 to-sky-300 bg-clip-text text-transparent">
-                آموزش نصب VS Code
+              <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-400 bg-clip-text text-transparent animate-gradient-x">
+                🚀 آموزش نصب VS Code
               </h1>
               <div className="w-32"></div>
             </div>
 
-            <Card className="bg-gradient-to-br from-cyan-500/20 to-blue-500/20 backdrop-blur-xl border-cyan-400/50 shadow-2xl shadow-cyan-500/20">
-              <CardContent className="p-8 space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="w-20 h-20 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-2xl flex items-center justify-center shadow-lg">
-                    <Code className="w-8 h-8 text-white" />
-                  </div>
-                  <div>
-                    <h2 className="text-3xl font-bold text-white mb-2">
-                      Visual Studio Code
-                    </h2>
-                    <p className="text-cyan-300 text-lg">
-                      آموزش کامل نصب و راه‌اندازی
-                    </p>
-                  </div>
-                </div>
+            <div className="relative">
+              {/* 3D Floating Effect Container */}
+              <div className="relative transform-style-3d perspective-1000 hover:rotate-y-2 transition-transform duration-700">
+                {/* Floating Glow Orbs */}
+                <div className="absolute -top-10 -right-10 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
+                <div
+                  className="absolute -bottom-10 -left-10 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl animate-pulse"
+                  style={{ animationDelay: "1s" }}
+                />
 
-                <div className="grid gap-4">
-                  {[
-                    {
-                      title: "قسمت اول: دانلود و نصب VS Code",
-                      description:
-                        "نحوه دانلود و نصب VS Code در ویندوز، مک و لینوکس",
-                      duration: "15 دقیقه",
-                      src: "https://example.com/vscode-install-part1.mp4",
-                    },
-                    {
-                      title: "قسمت دوم: تنظیمات اولیه و افزونه‌ها",
-                      description: "نصب افزونه‌های ضروری و تنظیمات پیشنهادی",
-                      duration: "20 دقیقه",
-                      src: "https://example.com/vscode-install-part2.mp4",
-                    },
-                    {
-                      title: "قسمت سوم: شروع کار با VS Code",
-                      description: "آشنایی با محیط کاری و ویژگی‌های کاربردی",
-                      duration: "25 دقیقه",
-                      src: "https://example.com/vscode-install-part3.mp4",
-                    },
-                  ].map((video, index) => (
-                    <div
-                      key={index}
-                      onClick={() => {
-                        setCurrentVideo({
-                          title: video.title,
-                          src: video.src,
-                          duration: video.duration,
-                          courseTitle: "آموزش نصب VS Code",
-                          mentor: "تیم آیسیران",
-                          videoIndex: index,
-                          totalVideos: 3,
-                        });
-                        setIsWatchingVideo(true);
-                      }}
-                      className="bg-slate-800/60 border border-slate-700/50 rounded-xl p-6 hover:bg-slate-700/60 hover:border-cyan-400/50 transition-all duration-300 cursor-pointer group"
-                    >
-                      <div className="flex items-start gap-4">
-                        <div className="w-16 h-16 bg-cyan-500/20 rounded-lg flex items-center justify-center group-hover:bg-cyan-500/30 transition-all flex-shrink-0">
-                          <Play className="w-8 h-8 text-cyan-400" />
-                        </div>
-                        <div className="flex-1">
-                          <h3 className="text-xl font-bold text-white mb-2">
-                            {video.title}
-                          </h3>
-                          <p className="text-slate-400 text-sm mb-3">
-                            {video.description}
-                          </p>
-                          <div className="flex items-center gap-4 text-sm">
-                            <div className="flex items-center gap-2 text-cyan-400">
-                              <Clock className="w-4 h-4" />
-                              <span>{video.duration}</span>
+                {/* Main Card with Glass Effect */}
+                <Card className="relative bg-gradient-to-br from-gray-900/95 via-gray-800/95 to-gray-900/95 backdrop-blur-2xl border border-cyan-400/20 border-t-cyan-300/30 border-l-cyan-300/30 shadow-2xl shadow-cyan-500/20 hover:shadow-cyan-500/30 transition-all duration-500 overflow-hidden group/card">
+                  {/* Animated Border */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/0 via-blue-500/10 to-sky-500/0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-1000 rounded-2xl" />
+
+                  {/* Grid Pattern */}
+                  <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_49%,rgba(56,189,248,0.05)_50%,transparent_51%)] bg-[length:20px_20px] opacity-30" />
+
+                  <CardContent className="p-8 space-y-10 relative">
+                    {/* Header Section with Neon Effect */}
+                    <div className="flex items-center gap-6">
+                      <div className="relative">
+                        {/* Floating Icon Container */}
+                        <div className="relative w-28 h-28">
+                          <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 via-blue-500 to-sky-500 rounded-3xl shadow-2xl shadow-cyan-500/40 animate-glow" />
+                          <div className="absolute inset-2 bg-gradient-to-br from-cyan-600 via-blue-600 to-sky-600 rounded-2xl flex items-center justify-center">
+                            <div className="text-4xl font-bold text-white animate-bounce-slow">
+                              VS
                             </div>
-                            <Badge className="bg-cyan-500/20 text-cyan-300 border border-cyan-400/50">
-                              قسمت {index + 1}
-                            </Badge>
                           </div>
+                          {/* Rotating Rings */}
+                          <div className="absolute inset-0 border-2 border-cyan-400/30 rounded-3xl animate-spin-slow" />
+                          <div className="absolute inset-3 border border-cyan-300/20 rounded-2xl animate-spin-reverse" />
                         </div>
-                        <ChevronLeft className="w-6 h-6 text-cyan-400 group-hover:translate-x-[-4px] transition-transform flex-shrink-0" />
+                      </div>
+                      <div className="space-y-4">
+                        <div className="flex items-center gap-4">
+                          <h2 className="text-5xl font-bold bg-gradient-to-r from-cyan-300 via-white to-blue-300 bg-clip-text text-transparent drop-shadow-lg">
+                            Visual Studio Code
+                          </h2>
+                          <Badge className="bg-gradient-to-r from-cyan-500/30 to-blue-500/30 text-cyan-200 border border-cyan-400/40 text-sm px-4 py-1.5 shadow-lg animate-pulse">
+                            ✨ راهنمای کامل
+                          </Badge>
+                        </div>
+                        <p className="text-gray-300 text-lg max-w-2xl leading-relaxed">
+                          آموزش کامل نصب و راه‌اندازی ویرایشگر کد حرفه‌ای برای
+                          شروع برنامه‌نویسی
+                        </p>
+                        <div className="flex items-center gap-6 text-sm">
+                          <span className="flex items-center gap-2 text-cyan-300 bg-cyan-500/10 px-3 py-1.5 rounded-full">
+                            <div className="w-2 h-2 bg-cyan-400 rounded-full animate-ping" />
+                            <span className="font-medium">
+                              آخرین نسخه: v1.96
+                            </span>
+                          </span>
+                          <span className="flex items-center gap-2 text-gray-300 bg-gray-800/50 px-3 py-1.5 rounded-full border border-gray-700/50">
+                            <div className="w-4 h-4 flex items-center justify-center animate-bounce">
+                              ↓
+                            </div>
+                            <span>دانلود رایگان</span>
+                          </span>
+                          <span className="flex items-center gap-2 text-gray-300 bg-gray-800/50 px-3 py-1.5 rounded-full border border-gray-700/50">
+                            <div className="w-4 h-4 flex items-center justify-center">
+                              ⏱️
+                            </div>
+                            <span>۶۰ دقیقه آموزش</span>
+                          </span>
+                        </div>
                       </div>
                     </div>
-                  ))}
-                </div>
 
-                <div className="bg-slate-800/60 border border-slate-700/50 rounded-xl p-6">
-                  <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-3">
-                    <Settings className="w-6 h-6 text-cyan-400" />
-                    افزونه‌های پیشنهادی
-                  </h3>
-                  <div className="grid md:grid-cols-2 gap-3">
-                    {[
-                      "Prettier - Code formatter",
-                      "ESLint",
-                      "Live Server",
-                      "Auto Rename Tag",
-                      "Path Intellisense",
-                      "GitLens",
-                    ].map((extension, index) => (
-                      <div
-                        key={index}
-                        className="bg-slate-700/40 border border-slate-600/50 rounded-lg p-3 text-slate-300 text-sm"
-                      >
-                        ✓ {extension}
+                    {/* Video Lessons Grid - Holographic Cards */}
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      {[
+                        {
+                          title: "دانلود و نصب VS Code",
+                          description: "آموزش نصب در ویندوز، مک و لینوکس",
+                          duration: "۱۵ دقیقه",
+                          src: "https://example.com/vscode-install-part1.mp4",
+                          icon: "⬇️",
+                          color: "from-cyan-500 to-blue-500",
+                          bgColor: "from-cyan-500/15 to-blue-500/15",
+                          progress: 100,
+                          badge: "🆓 رایگان",
+                        },
+                        {
+                          title: "تنظیمات و افزونه‌ها",
+                          description: "نصب افزونه‌های ضروری و تنظیمات",
+                          duration: "۲۰ دقیقه",
+                          src: "https://example.com/vscode-install-part2.mp4",
+                          icon: "⚙️",
+                          color: "from-blue-500 to-indigo-500",
+                          bgColor: "from-blue-500/15 to-indigo-500/15",
+                          progress: 60,
+                          badge: "⭐ محبوب",
+                        },
+                        {
+                          title: "شروع کار حرفه‌ای",
+                          description: "آشنایی با محیط و امکانات",
+                          duration: "۲۵ دقیقه",
+                          src: "https://example.com/vscode-install-part3.mp4",
+                          icon: "🚀",
+                          color: "from-indigo-500 to-purple-500",
+                          bgColor: "from-indigo-500/15 to-purple-500/15",
+                          progress: 0,
+                          badge: "🎯 پروژه‌ای",
+                        },
+                      ].map((video, index) => (
+                        <div
+                          key={index}
+                          onClick={() => {
+                            setCurrentVideo({
+                              title: video.title,
+                              src: video.src,
+                              duration: video.duration,
+                              courseTitle: "آموزش نصب VS Code",
+                              mentor: "تیم آیسیران",
+                              videoIndex: index,
+                              totalVideos: 3,
+                            });
+                            setIsWatchingVideo(true);
+                          }}
+                          className="group/video relative transform-style-3d hover:translate-y-[-8px] transition-all duration-500"
+                        >
+                          {/* Holographic Effect */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-2xl opacity-0 group-hover/video:opacity-100 transition-opacity duration-500" />
+
+                          {/* Card Glow on Hover */}
+                          <div
+                            className={`absolute inset-0 bg-gradient-to-br ${video.color} rounded-2xl blur-xl opacity-0 group-hover/video:opacity-30 transition-opacity duration-500`}
+                          />
+
+                          <div
+                            className={`relative bg-gradient-to-br ${video.bgColor} backdrop-blur-xl border border-gray-700/70 rounded-2xl p-6 hover:border-cyan-400/50 hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500 cursor-pointer overflow-hidden group-hover/video:scale-[1.02] h-full`}
+                          >
+                            {/* Floating Particles */}
+                            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-400/50 to-transparent animate-shimmer" />
+
+                            <div className="space-y-5 relative z-10">
+                              {/* Icon and Badge */}
+                              <div className="flex items-center justify-between">
+                                <div className="relative">
+                                  <div
+                                    className={`w-16 h-16 bg-gradient-to-br ${video.color} rounded-2xl flex items-center justify-center shadow-2xl text-3xl relative overflow-hidden group-hover/video:rotate-12 transition-transform duration-500`}
+                                  >
+                                    {video.icon}
+                                    <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent" />
+                                  </div>
+                                  {/* Floating Ring */}
+                                  <div className="absolute -inset-2 border-2 border-cyan-400/30 rounded-3xl animate-ping opacity-0 group-hover/video:opacity-100" />
+                                </div>
+                                <div className="flex items-center gap-2">
+                                  <Badge className="bg-gray-800/80 text-gray-300 border border-gray-600/50 text-xs px-3 py-1">
+                                    {video.badge}
+                                  </Badge>
+                                  <div className="w-10 h-10 bg-gradient-to-br from-gray-800 to-gray-900 rounded-full flex items-center justify-center text-sm font-bold text-cyan-300 border border-cyan-400/30 shadow-lg">
+                                    {index + 1}
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* Content */}
+                              <div className="space-y-3">
+                                <h3 className="text-xl font-bold text-white group-hover/video:text-cyan-100 transition-colors leading-tight">
+                                  {video.title}
+                                </h3>
+                                <p className="text-gray-400 text-sm leading-relaxed">
+                                  {video.description}
+                                </p>
+                              </div>
+
+                              {/* Footer */}
+                              <div className="space-y-4 pt-4 border-t border-gray-700/50">
+                                <div className="flex items-center justify-between">
+                                  <div className="flex items-center gap-2 text-cyan-300 text-sm">
+                                    <div className="w-4 h-4 flex items-center justify-center animate-pulse">
+                                      ⏱️
+                                    </div>
+                                    <span className="font-medium">
+                                      {video.duration}
+                                    </span>
+                                  </div>
+                                  <div className="flex items-center gap-2">
+                                    <div className="w-6 h-6 flex items-center justify-center text-cyan-400 group-hover/video:text-cyan-300 transition-colors transform group-hover/video:scale-110">
+                                      ▶️
+                                    </div>
+                                    <div className="w-6 h-6 flex items-center justify-center text-cyan-400 group-hover/video:translate-x-[-6px] transition-transform">
+                                      ←
+                                    </div>
+                                  </div>
+                                </div>
+
+                                {/* Animated Progress Bar */}
+                                <div className="space-y-2">
+                                  <div className="flex justify-between text-xs text-gray-400">
+                                    <span>🎯 پیشرفت</span>
+                                    <span className="font-bold">
+                                      {video.progress}%
+                                    </span>
+                                  </div>
+                                  <div className="h-2 bg-gray-800/50 rounded-full overflow-hidden">
+                                    <div
+                                      className={`h-full bg-gradient-to-r ${video.color} rounded-full transition-all duration-1000 relative`}
+                                      style={{ width: `${video.progress}%` }}
+                                    >
+                                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shimmer" />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Recommended Extensions Section - Galaxy Theme */}
+                    <div className="relative">
+                      {/* Section Glow */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-violet-500/5 via-purple-500/5 to-fuchsia-500/5 rounded-2xl blur-xl" />
+
+                      <div className="relative bg-gradient-to-br from-gray-900/60 to-gray-800/60 backdrop-blur-xl border border-violet-400/30 rounded-2xl p-8 hover:border-cyan-400/40 transition-all duration-500 overflow-hidden">
+                        {/* Floating Stars */}
+                        <div className="absolute inset-0">
+                          {[...Array(15)].map((_, i) => (
+                            <div
+                              key={i}
+                              className="absolute w-1 h-1 bg-white rounded-full animate-twinkle"
+                              style={{
+                                left: `${Math.random() * 100}%`,
+                                top: `${Math.random() * 100}%`,
+                                animationDelay: `${Math.random() * 3}s`,
+                              }}
+                            />
+                          ))}
+                        </div>
+
+                        <div className="relative z-10">
+                          <div className="flex items-center gap-4 mb-8">
+                            <div className="relative">
+                              <div className="w-14 h-14 bg-gradient-to-br from-violet-500/30 to-purple-500/30 rounded-2xl flex items-center justify-center text-2xl backdrop-blur-sm">
+                                ⚙️
+                              </div>
+                              <div className="absolute -inset-2 border border-violet-400/20 rounded-3xl animate-ping" />
+                            </div>
+                            <div>
+                              <h3 className="text-2xl font-bold bg-gradient-to-r from-violet-300 to-purple-300 bg-clip-text text-transparent">
+                                ✨ افزونه‌های پیشنهادی
+                              </h3>
+                              <p className="text-gray-400 text-sm mt-1">
+                                ضروری‌ترین افزونه‌ها برای توسعه بهتر و سریع‌تر
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            {[
+                              {
+                                name: "Prettier",
+                                desc: "فرمت‌دهنده کد",
+                                icon: "✨",
+                                color: "from-yellow-500/20 to-amber-500/20",
+                              },
+                              {
+                                name: "ESLint",
+                                desc: "بررسی خطاهای JavaScript",
+                                icon: "✅",
+                                color: "from-emerald-500/20 to-green-500/20",
+                              },
+                              {
+                                name: "Live Server",
+                                desc: "سرور زنده توسعه",
+                                icon: "⚡",
+                                color: "from-cyan-500/20 to-blue-500/20",
+                              },
+                              {
+                                name: "Auto Rename Tag",
+                                desc: "تغییر نام خودکار تگ‌ها",
+                                icon: "🔁",
+                                color: "from-blue-500/20 to-indigo-500/20",
+                              },
+                              {
+                                name: "Path Intellisense",
+                                desc: "پیشنهاد مسیر فایل‌ها",
+                                icon: "📍",
+                                color: "from-indigo-500/20 to-purple-500/20",
+                              },
+                              {
+                                name: "GitLens",
+                                desc: "قدرتمندسازی Git",
+                                icon: "🔍",
+                                color: "from-purple-500/20 to-pink-500/20",
+                              },
+                            ].map((extension, index) => (
+                              <div
+                                key={index}
+                                className="group/extension relative transform hover:translate-y-[-2px] transition-all duration-300"
+                              >
+                                <div
+                                  className={`relative bg-gradient-to-br ${extension.color} backdrop-blur-sm border border-gray-700/50 rounded-xl p-4 hover:border-violet-400/50 hover:shadow-lg hover:shadow-violet-500/20 transition-all duration-300 cursor-pointer`}
+                                >
+                                  <div className="flex items-start gap-3">
+                                    <div
+                                      className={`w-12 h-12 bg-gradient-to-br ${extension.color.replace(
+                                        "/20",
+                                        "/30"
+                                      )} rounded-lg flex items-center justify-center text-xl shadow-lg`}
+                                    >
+                                      {extension.icon}
+                                    </div>
+                                    <div className="flex-1">
+                                      <h4 className="text-white font-semibold text-sm mb-1">
+                                        {extension.name}
+                                      </h4>
+                                      <p className="text-gray-400 text-xs leading-relaxed">
+                                        {extension.desc}
+                                      </p>
+                                    </div>
+                                    <div className="w-6 h-6 flex items-center justify-center text-violet-400 group-hover/extension:translate-x-[-4px] transition-transform opacity-0 group-hover/extension:opacity-100">
+                                      →
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
                       </div>
-                    ))}
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+                    </div>
+
+                    {/* CTA Button with Particle Effect */}
+                    <div className="relative pt-8">
+                      {/* Button Glow */}
+                      <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 via-blue-500/20 to-sky-500/20 rounded-2xl blur-2xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
+
+                      <Button className="relative w-full bg-gradient-to-r from-cyan-500 via-blue-500 to-sky-500 hover:from-cyan-400 hover:via-blue-400 hover:to-sky-400 text-white font-bold py-6 rounded-2xl transition-all duration-500 shadow-2xl hover:shadow-cyan-500/40 text-xl group/btn overflow-hidden">
+                        {/* Particle Burst on Hover */}
+                        <div className="absolute inset-0">
+                          {[...Array(8)].map((_, i) => (
+                            <div
+                              key={i}
+                              className="absolute w-1 h-1 bg-white rounded-full opacity-0 group-hover/btn:opacity-100 group-hover/btn:animate-burst"
+                              style={{
+                                left: "50%",
+                                top: "50%",
+                                transform: `rotate(${
+                                  i * 45
+                                }deg) translateY(-20px)`,
+                                animationDelay: `${i * 0.1}s`,
+                              }}
+                            />
+                          ))}
+                        </div>
+
+                        {/* Shine Effect */}
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-1000" />
+
+                        <span className="relative flex items-center justify-center gap-3">
+                          <div className="text-2xl animate-bounce">🚀</div>
+                          <span className="drop-shadow-lg">
+                            شروع آموزش نصب VS Code
+                          </span>
+                          <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
+                            <div className="w-3 h-3">→</div>
+                          </div>
+                        </span>
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
           </div>
         );
+      }
 
       case "chatbot":
         return (
@@ -3915,23 +4371,33 @@ export default function ICYRANDashboard() {
       className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950"
       dir="rtl"
     >
-      <div className="relative z-20 bg-gradient-to-r from-lime-600 via-emerald-500 to-teal-600 overflow-hidden">
-        <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.1)_50%,transparent_75%,transparent_100%)] bg-[length:250%_250%] animate-shimmer"></div>
-        <div className="max-w-7xl mx-auto px-6 py-3">
-          <div className="flex items-center justify-center gap-4 text-white">
-            <div className="flex items-center gap-2 animate-bounce">
-              <Trophy className="w-5 h-5" />
-              <span className="font-bold text-lg">🔥 پیشنهاد ویژه 🔥</span>
-            </div>
-            <span className="text-base md:text-lg font-semibold">
-              50% تخفیف ویژه تمام دوره‌ها - فرصت محدود!
-            </span>
-            <Button className="bg-white text-emerald-600 hover:bg-emerald-50 font-bold px-6 py-2 rounded-full text-sm transition-all duration-300 hover:scale-110 shadow-lg">
-              همین الان ثبت‌نام کنید
-            </Button>
-          </div>
-        </div>
+ <div className="relative z-20 bg-gradient-to-r from-emerald-700 via-teal-600 to-green-800 overflow-hidden">
+  <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.1)_50%,transparent_75%,transparent_100%)] bg-[length:250%_250%] animate-shimmer opacity-50"></div>
+  <div className="max-w-7xl mx-auto px-6 py-3">
+    <div className="flex items-center justify-center gap-4 text-white">
+      <div className="flex items-center gap-2 animate-bounce">
+        <Trophy className="w-5 h-5" />
+        <span className="font-bold text-lg">🔥 پیشنهاد ویژه 🔥</span>
       </div>
+      <span className="text-base md:text-lg font-semibold">
+        50% تخفیف ویژه تمام دوره‌ها - فرصت محدود!
+      </span>
+      <Button className="bg-white text-emerald-800 hover:bg-emerald-100 font-bold px-6 py-2 rounded-full text-sm transition-all duration-300 hover:scale-110 shadow-lg">
+        همین الان ثبت‌نام کنید
+      </Button>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
 
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-0 bg-[#1e3a5a]"></div>
@@ -4010,6 +4476,7 @@ export default function ICYRANDashboard() {
           ? renderCompetition()
           : null}
       </main>
+
       <footer className="fixed bottom-0 left-0 right-0 z-50 bg-gradient-to-t from-slate-950 via-slate-900/80 to-slate-900/40 backdrop-blur-3xl border-t border-cyan-500/20 shadow-2xl shadow-cyan-500/10">
         {/* Frosted glass effect overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/5 via-transparent to-blue-500/5 pointer-events-none"></div>
